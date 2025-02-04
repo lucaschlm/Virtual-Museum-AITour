@@ -46,12 +46,12 @@ public class PNJFollow : MonoBehaviour
         if (distanceToPlayer > stoppingDistance)
         {
             navMeshAgent.SetDestination(player.position);
-            animator.SetBool(IsWalking, true);
+            animator.SetBool("IsWalking", true);
         }
         else
         {
             navMeshAgent.ResetPath();
-            animator.SetBool(IsWalking, false);
+            animator.SetBool("IsWalking", false);
         }
     }
 }

@@ -9,7 +9,13 @@ public class ChatGPTUnity : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(SendRequestToChatGPT("Bonjour, comment ça va ?"));
+        HandleRequest("Bonjour, comment ça va ?");
+        EventManager.Instance.OnRequestSended += HandleRequest;
+    }
+
+    void HandleRequest(string message)
+    {
+        StartCoroutine(SendRequestToChatGPT(message));
     }
 
     IEnumerator SendRequestToChatGPT(string prompt)
@@ -60,6 +66,14 @@ public class ChatGPTUnity : MonoBehaviour
 
         // Si les marqueurs ne sont pas trouvés, retourner une chaîne vide ou un message d'erreur
         return "Content not found!";
+    }
+
+
+
+    private void OnDestroy()
+    {
+        // Desabonnement
+        EventManager.Instance.OnRequestSended -= HandleRequest;
     }
 }
 

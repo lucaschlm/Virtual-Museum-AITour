@@ -1,11 +1,14 @@
 using System;
 using UnityEngine;
+using System.Collections;
 
 public class EventManager : MonoBehaviour
 {
 
+    public delegate void MyDelegateFonction(string message);
+    
+    public event MyDelegateFonction OnRequestSended;
     public event Action<string> OnRequestCompleted;
-    public event Action<string> OnRequestSended;
 
     public static EventManager Instance { get; private set; }
 

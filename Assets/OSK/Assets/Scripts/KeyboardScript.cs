@@ -11,10 +11,7 @@ public class KeyboardScript : MonoBehaviour
 
     public void alphabetFunction(string alphabet)
     {
-
-
-        TextField.text=TextField.text + alphabet;
-
+        TextField.text = TextField.text + alphabet;
     }
 
     public void BackSpace()
@@ -37,10 +34,18 @@ public class KeyboardScript : MonoBehaviour
 
     public void ShowLayout(GameObject SetLayout)
     {
-
         CloseAllLayouts();
         SetLayout.SetActive(true);
+    }
 
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            EventManager.Instance.TriggerRequestSended(TextField.text);
+            TextField.text = "";
+        }
     }
 
 }

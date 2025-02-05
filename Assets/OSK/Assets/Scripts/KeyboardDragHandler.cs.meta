@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: a5ed86bb98803f44b9781db51170b3fd
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 148532
+  packageName: OSK OnScreenKeyboard Rus/Eng
+  packageVersion: 1.0
+  assetPath: Assets/OSK/Assets/Scripts/KeyboardDragHandler.cs
+  uploadId: 318323

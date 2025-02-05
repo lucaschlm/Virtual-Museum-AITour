@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 2b588419570d9394a94ff4cef1addb7d
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 148532
+  packageName: OSK OnScreenKeyboard Rus/Eng
+  packageVersion: 1.0
+  assetPath: Assets/OSK/Assets/Scripts/KeyboardScript.cs
+  uploadId: 318323

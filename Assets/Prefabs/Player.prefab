@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7990939104400055210}
   - component: {fileID: 7053523129710882745}
   - component: {fileID: 1399030620427343203}
+  - component: {fileID: 122888312676642228}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -240,6 +241,28 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!114 &122888312676642228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6044314790170420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68b1a28d04523cd4c9b6b0b13dcda301, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftController: {fileID: 489808182196584064}
+  rightController: {fileID: 639063960373385492}
+  leftHandUI:
+  - {fileID: 4563613144911148153}
+  - {fileID: 6104494333816976701}
+  rightHandUI:
+  - {fileID: 7304411757277387584}
+  - {fileID: 5379735098169515278}
+  detectionAngle: 15
+  fadeDuration: 0.5
 --- !u!1 &54158594127465333
 GameObject:
   m_ObjectHideFlags: 0
@@ -1365,6 +1388,7 @@ GameObject:
   - component: {fileID: 6814464408820259696}
   - component: {fileID: 1207642414783799732}
   - component: {fileID: 2391955298291061242}
+  - component: {fileID: 4459447649348416293}
   m_Layer: 0
   m_Name: Se deplacer
   m_TagString: Untagged
@@ -1587,6 +1611,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonPosition: {fileID: 5679250987152292464}
   labelPosition: {fileID: 4512679114132804599}
+--- !u!225 &4459447649348416293
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4563613144911148153}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &4566007186706117534
 GameObject:
   m_ObjectHideFlags: 0
@@ -1790,6 +1826,7 @@ GameObject:
   - component: {fileID: 5535082048851305284}
   - component: {fileID: 2499657415623369943}
   - component: {fileID: 3927343628129245679}
+  - component: {fileID: 5592000548317608882}
   m_Layer: 0
   m_Name: Interagir
   m_TagString: Untagged
@@ -2012,6 +2049,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonPosition: {fileID: 5103532538871190961}
   labelPosition: {fileID: 451882810458781831}
+--- !u!225 &5592000548317608882
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5379735098169515278}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &5609377083242794129
 GameObject:
   m_ObjectHideFlags: 0
@@ -2194,6 +2243,7 @@ GameObject:
   - component: {fileID: 1848163842067350648}
   - component: {fileID: 944186952219019082}
   - component: {fileID: 7383860907018367084}
+  - component: {fileID: 7753589428411513796}
   m_Layer: 0
   m_Name: Interagir
   m_TagString: Untagged
@@ -2416,6 +2466,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonPosition: {fileID: 7603609317655586200}
   labelPosition: {fileID: 6839557579286785733}
+--- !u!225 &7753589428411513796
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6104494333816976701}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &6662036453855514576
 GameObject:
   m_ObjectHideFlags: 0
@@ -2629,6 +2691,7 @@ GameObject:
   - component: {fileID: 8211196008167636297}
   - component: {fileID: 2125211930795832762}
   - component: {fileID: 7934835763841834537}
+  - component: {fileID: 1933956449591707264}
   m_Layer: 0
   m_Name: Tourner
   m_TagString: Untagged
@@ -2851,6 +2914,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonPosition: {fileID: 1128390499640617501}
   labelPosition: {fileID: 3530010277463861717}
+--- !u!225 &1933956449591707264
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7304411757277387584}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &7501578777782022729
 GameObject:
   m_ObjectHideFlags: 0

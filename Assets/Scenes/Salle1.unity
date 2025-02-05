@@ -3073,6 +3073,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PNJ
       objectReference: {fileID: 0}
+    - target: {fileID: 2534109618756259255, guid: a35ad63960bf6bd45acf2c48b7cae001, type: 3}
+      propertyPath: m_BaseOffset
+      value: -0.12
+      objectReference: {fileID: 0}
     - target: {fileID: 4538581657738125095, guid: a35ad63960bf6bd45acf2c48b7cae001, type: 3}
       propertyPath: m_LocalPosition.x
       value: 11.059752

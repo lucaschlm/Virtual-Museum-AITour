@@ -131,6 +131,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: OnScreenKeyboard
       objectReference: {fileID: 0}
+    - target: {fileID: 2452114811308096172, guid: c216c4fb684db134c9cdf8441b831f9f, type: 3}
+      propertyPath: TextField
+      value: 
+      objectReference: {fileID: 2146540112}
     - target: {fileID: 2452114811308096173, guid: c216c4fb684db134c9cdf8441b831f9f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -193,11 +197,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2452114811308096173, guid: c216c4fb684db134c9cdf8441b831f9f, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -935
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2452114811308096173, guid: c216c4fb684db134c9cdf8441b831f9f, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -430
+      value: -149
       objectReference: {fileID: 0}
     - target: {fileID: 2452114811308096173, guid: c216c4fb684db134c9cdf8441b831f9f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -340,6 +344,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c644408d92db4564891b31323f6a0e99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_textField: {fileID: 550727757}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0

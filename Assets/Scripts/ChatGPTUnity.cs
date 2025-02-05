@@ -7,15 +7,31 @@ public class ChatGPTUnity : MonoBehaviour
     [SerializeField]
     private string apiKey = "";
 
+    private string _prompt = "";
+
     void Start()
     {
-        HandleRequest("Bonjour, comment ça va ?");
+        EventManager.Instance.OnAddedToPrompt += HandleAddedToPrompt;
         EventManager.Instance.OnRequestSended += HandleRequest;
+
+        ClearPrompt();
+        HandleAddedToPrompt("Bonjour, comment ça va ?");
     }
 
-    void HandleRequest(string message)
+    void HandleAddedToPrompt(string prompt)
     {
-        StartCoroutine(SendRequestToChatGPT(message));
+        _prompt = _prompt + prompt;
+    }
+
+    void ClearPrompt()
+    {
+        _prompt = "";
+    }
+
+    void HandleRequest()
+    {
+        StartCoroutine(SendRequestToChatGPT(_prompt));
+        ClearPrompt();
     }
 
     IEnumerator SendRequestToChatGPT(string prompt)

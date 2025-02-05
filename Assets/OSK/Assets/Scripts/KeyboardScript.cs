@@ -46,7 +46,8 @@ public class KeyboardScript : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            EventManager.Instance.TriggerRequestSended(TextField.text);
+            EventManager.Instance.TriggerOnAddedToPrompt(TextField.text);
+            EventManager.Instance.TriggerRequestSended();
             TextField.text = "";
         }
     }

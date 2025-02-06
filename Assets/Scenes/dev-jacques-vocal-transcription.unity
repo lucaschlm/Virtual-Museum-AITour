@@ -605,7 +605,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 878952650}
   m_HandleRect: {fileID: 878952649}
   m_Direction: 0
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -861,7 +861,6 @@ GameObject:
   - component: {fileID: 672053227}
   - component: {fileID: 672053231}
   - component: {fileID: 672053230}
-  - component: {fileID: 672053229}
   - component: {fileID: 672053228}
   m_Layer: 5
   m_Name: Answer
@@ -902,38 +901,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _label: {fileID: 672053230}
---- !u!114 &672053229
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 672053226}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a960272debaf35b4f8df9292e4191044, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  witDictation: {fileID: 0}
-  linesBetweenActivations: 2
-  activationSeparator: ';;
-
-'
-  onTranscriptionUpdated:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 672053230}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: set_text
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &672053230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -954,7 +921,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ChatGPT answer will appear here
+  m_text: 'ChatGPT answer will appear here.
+
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1019,7 +989,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 10, y: 10, z: 10, w: 10}
+  m_margin: {x: 10, y: 10, z: 1134.3923, w: 10}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1077,6 +1047,7 @@ GameObject:
   - component: {fileID: 854002812}
   - component: {fileID: 854002811}
   - component: {fileID: 854002810}
+  - component: {fileID: 854002813}
   m_Layer: 5
   m_Name: Activate Button
   m_TagString: Untagged
@@ -1160,6 +1131,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 854002813}
+        m_TargetAssemblyTypeName: ActivateButtonBehaviour, Assembly-CSharp
+        m_MethodName: OnButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &854002811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1198,6 +1181,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 854002808}
   m_CullTransparentMesh: 0
+--- !u!114 &854002813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 854002808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 116b574d68f676c47b8a07bf830d4afe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &878952648
 GameObject:
   m_ObjectHideFlags: 0
@@ -1874,7 +1869,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -96, y: 34}
+  m_AnchoredPosition: {x: -95.99997, y: 34}
   m_SizeDelta: {x: -256, y: 350}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1476991782
@@ -2397,7 +2392,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1995867226}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: 
         m_MethodName: Clear
         m_Mode: 1
@@ -2458,7 +2453,7 @@ GameObject:
   - component: {fileID: 1995867228}
   - component: {fileID: 1995867227}
   - component: {fileID: 1995867225}
-  - component: {fileID: 1995867226}
+  - component: {fileID: 1995867230}
   - component: {fileID: 1995867229}
   m_Layer: 5
   m_Name: Transcription
@@ -2487,10 +2482,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '
+  m_text: 'Your Transcription will appear here.
 
 
-    Your Transcription will appear here.'
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2555,44 +2550,12 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 10, y: 10, z: 10, w: 10}
+  m_margin: {x: 1075.0896, y: 10, z: 10, w: 10}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &1995867226
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1995867224}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a960272debaf35b4f8df9292e4191044, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  witDictation: {fileID: 0}
-  linesBetweenActivations: 2
-  activationSeparator: ';;
-
-'
-  onTranscriptionUpdated:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1995867225}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: set_text
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!222 &1995867227
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2633,6 +2596,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _label: {fileID: 1995867225}
+--- !u!114 &1995867230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1995867224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fdccd44ed5ba6647bc613b9274c79f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  witDictation: {fileID: 0}
+  linesBetweenActivations: 2
+  activationSeparator: 
+  onTranscriptionUpdated:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1995867225}
+        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
+        m_MethodName: set_text
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2073825245
 GameObject:
   m_ObjectHideFlags: 0

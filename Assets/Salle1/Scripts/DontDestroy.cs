@@ -10,7 +10,7 @@ using UnityEngine;
 public class DontDestroy : MonoBehaviour {
     void Start(){
         GameObject[] objs = GameObject.FindGameObjectsWithTag(this.tag);
-        if (objs.Length > 3){
+        if (objs.Length > 1){
             Destroy(this.gameObject); // S'il y a déjà 3 piles, on supprimes les autres
         }
         DontDestroyOnLoad(this.gameObject);

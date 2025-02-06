@@ -9,6 +9,9 @@ public class LookAtControllerUI : MonoBehaviour
     public CanvasGroup[] leftHandUI;  // Liste des UI des boutons de la main gauche
     public CanvasGroup[] rightHandUI; // Liste des UI des boutons de la main droite
 
+    public LineRenderer[] leftHandLines;  // Liste des flèches pour la main gauche
+    public LineRenderer[] rightHandLines; // Liste des flèches pour la main droite
+
     public float detectionAngle = 30f; // Angle de vision pour afficher l'UI
     public float fadeDuration = 0.5f;  // Durée du fondu
 
@@ -23,23 +26,23 @@ public class LookAtControllerUI : MonoBehaviour
         if (lookingAtLeft && !isLeftVisible)
         {
             isLeftVisible = true;
-            StartCoroutine(FadeUI(leftHandUI, 1)); // Apparition
+            StartCoroutine(FadeUI(leftHandUI, leftHandLines, 1));
         }
         else if (!lookingAtLeft && isLeftVisible)
         {
             isLeftVisible = false;
-            StartCoroutine(FadeUI(leftHandUI, 0)); // Disparition
+            StartCoroutine(FadeUI(leftHandUI, leftHandLines, 0));
         }
 
         if (lookingAtRight && !isRightVisible)
         {
             isRightVisible = true;
-            StartCoroutine(FadeUI(rightHandUI, 1));
+            StartCoroutine(FadeUI(rightHandUI, rightHandLines, 1));
         }
         else if (!lookingAtRight && isRightVisible)
         {
             isRightVisible = false;
-            StartCoroutine(FadeUI(rightHandUI, 0));
+            StartCoroutine(FadeUI(rightHandUI, rightHandLines, 0));
         }
     }
 
@@ -50,13 +53,13 @@ public class LookAtControllerUI : MonoBehaviour
         Vector3 directionToTarget = target.position - transform.position;
         float angle = Vector3.Angle(transform.forward, directionToTarget);
 
-        return angle < detectionAngle; // Vérifie si le joueur regarde dans l’angle défini
+        return angle < detectionAngle;
     }
 
-    private IEnumerator FadeUI(CanvasGroup[] uiElements, float targetAlpha)
-    {
+    private IEnumerator FadeUI(CanvasGroup[] uiElements, LineRenderer[] lineRenderers, float targetAlpha)
+            {
         float elapsedTime = 0;
-        float startAlpha = uiElements[0].alpha; // Prendre l'alpha d'un élément
+        float startAlpha = uiElements[0].alpha;
 
         while (elapsedTime < fadeDuration)
         {
@@ -65,13 +68,28 @@ public class LookAtControllerUI : MonoBehaviour
             {
                 ui.alpha = newAlpha;
             }
+            SetLineAlpha(lineRenderers, newAlpha);
             elapsedTime += Time.deltaTime;
             yield return null;
         }
 
         foreach (CanvasGroup ui in uiElements)
         {
-            ui.alpha = targetAlpha; // Assure que l'UI est complètement apparu/disparu
+            ui.alpha = targetAlpha;
+        }
+        SetLineAlpha(lineRenderers, targetAlpha);
+    }
+
+    private void SetLineAlpha(LineRenderer[] lineRenderers, float alpha)
+    {
+        foreach (LineRenderer line in lineRenderers)
+        {
+            if (line != null && line.material != null)
+            {
+                Color color = line.material.color;
+                color.a = alpha;
+                line.material.color = color;
+            }
         }
     }
 }

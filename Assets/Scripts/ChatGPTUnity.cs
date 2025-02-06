@@ -13,9 +13,9 @@ public class ChatGPTUnity : MonoBehaviour
     {
         EventManager.Instance.OnAddedToPrompt += HandleAddedToPrompt;
         EventManager.Instance.OnRequestSended += HandleRequest;
-
         ClearPrompt();
-        HandleAddedToPrompt("Bonjour, comment ça va ?");
+        HandleAddedToPrompt("A partir de ce message répond en très peu de mots pour minimiser les tokens utilisés (15-20 mots maximum). Présente-toi en tant qu'IA et demande-moi si je vais bien");
+        HandleRequest();
     }
 
     void HandleAddedToPrompt(string prompt)

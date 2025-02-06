@@ -17,9 +17,14 @@ public class ChatGPTResponseHandler : MonoBehaviour
     // Méthode appelée quand l'événement est déclenché
     private void HandleResponse(string response)
     {
-        m_textFieldTMP.text = response;
-        //m_textFieldInput.text = response;
+        PrintOnTextBox(response);
         Debug.Log("Réponse reçue : " + response);
+    }
+
+    private void PrintOnTextBox(string response)
+    {
+        m_textFieldTMP.text = m_textFieldTMP.text + "> " + response + '\n';
+        //m_textFieldInput.text = response;
     }
 
 

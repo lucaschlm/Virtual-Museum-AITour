@@ -11,7 +11,7 @@ public class Teleport : MonoBehaviour{
     [SerializeField]
     private string scene;
 
-    private void Awake(){
+    void Start(){
         StartCoroutine(FadeFromBlack()); // Retire le noir au début
     }
 
@@ -37,17 +37,12 @@ public class Teleport : MonoBehaviour{
     void OnTriggerEnter(Collider other){
         if(other.CompareTag("Player")){
             
-
-            // Chargement de l'autre scène doucement
             StartCoroutine(LoadSceneAsync(scene));
 
-            // // Placement du joueur au bon endroit
-            // GameObject[] joueur = GameObject.FindGameObjectsWithTag("Player");
-            // joueur[0].transform.position = new Vector3(34, 0, 2);
         }
     }
 
-    IEnumerator FadeToBlack(){
+    IEnumerator FadeToBlack(){        
         for(float i = 0; i <= 1; i += Time.deltaTime){
             fadeImage.color = new Color(0,0,0,i);
             yield return null;
@@ -55,7 +50,7 @@ public class Teleport : MonoBehaviour{
     }
 
     IEnumerator FadeFromBlack(){
-        for(float i = 0; i <= 1; i -= Time.deltaTime){
+        for(float i = 1; i >= 0; i -= Time.deltaTime){
             fadeImage.color = new Color(0,0,0,i);
             yield return null;
         }

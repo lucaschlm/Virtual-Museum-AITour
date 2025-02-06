@@ -10,10 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2357986653228175217}
   - component: {fileID: 7951168918041869776}
-  - component: {fileID: 37706153599745994}
   m_Layer: 0
   m_Name: XR Interaction Manager
-  m_TagString: InteractionManager
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47,15 +46,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_StartingHoverFilters: []
   m_StartingSelectFilters: []
---- !u!114 &37706153599745994
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5873178084741093961}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4751fbd0464ccfa4c992b48afd594b3e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

@@ -4294,6 +4294,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tpto
       objectReference: {fileID: 0}
+    - target: {fileID: 5583500488395835092, guid: cb0baa981a1b63d4abd95ab274f7fce3, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1938932894}
+    - target: {fileID: 5583500488395835092, guid: cb0baa981a1b63d4abd95ab274f7fce3, type: 3}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5583500488395835092, guid: cb0baa981a1b63d4abd95ab274f7fce3, type: 3}
+      propertyPath: m_PlaneDistance
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 6764683077043137709, guid: cb0baa981a1b63d4abd95ab274f7fce3, type: 3}
       propertyPath: scene
       value: Start
@@ -5018,6 +5030,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 7950583705289226102, guid: 4b13e8a597d84e743b44320e0eb67c7f, type: 3}
   m_PrefabInstance: {fileID: 1880322332}
+  m_PrefabAsset: {fileID: 0}
+--- !u!20 &1938932894 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 8380939412681266404, guid: b8a1b530b90258e4c95bd6714e3167e1, type: 3}
+  m_PrefabInstance: {fileID: 786881197}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1990825335
 PrefabInstance:

@@ -267,7 +267,7 @@ MonoBehaviour:
   rightHandLines:
   - {fileID: 8211196008167636297}
   - {fileID: 5535082048851305284}
-  detectionAngle: 20
+  detectionAngle: 25
   fadeDuration: 0.5
 --- !u!1 &54158594127465333
 GameObject:

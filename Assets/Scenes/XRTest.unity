@@ -299,7 +299,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 122888312676642228, guid: 1ad18fef7286a4443adf0edcd977db1c, type: 3}
       propertyPath: detectionAngle
-      value: 20
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 122888312676642228, guid: 1ad18fef7286a4443adf0edcd977db1c, type: 3}
       propertyPath: leftHandUI.Array.size

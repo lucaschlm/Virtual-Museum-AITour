@@ -697,7 +697,7 @@ GameObject:
   - component: {fileID: 7189982666868336911}
   - component: {fileID: 4909772888283274693}
   m_Layer: 0
-  m_Name: Pilier_Presentation
+  m_Name: Pres_Jardin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

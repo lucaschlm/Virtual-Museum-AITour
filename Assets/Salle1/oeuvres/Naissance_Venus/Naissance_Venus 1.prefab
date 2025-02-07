@@ -293,7 +293,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6855595865308429328, guid: df4b5de357e65f24dba8939903bb800a, type: 3}
       propertyPath: m_Name
-      value: Pilier_Presentation
+      value: Pres_Naissance
       objectReference: {fileID: 0}
     - target: {fileID: 7746263336225117486, guid: df4b5de357e65f24dba8939903bb800a, type: 3}
       propertyPath: m_text

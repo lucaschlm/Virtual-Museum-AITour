@@ -11,7 +11,7 @@ public class PNJGuide : MonoBehaviour
     //TODO: changer car navmesh agent a deja une distance
     [Header("Paramètres de Navigation")]
     [Tooltip("Distance minimale avant que le PNJ s'arrête.")]
-    [SerializeField] private float stoppingDistance = 0.5f;
+    [SerializeField] private float stoppingDistance = 3;
 
     private NavMeshAgent navMeshAgent;
     private Animator animator;
@@ -22,6 +22,18 @@ public class PNJGuide : MonoBehaviour
 
     private void initDico(){
         Dico.Add("L'Amphitrite", "Pres_Amphitrite");
+        Dico.Add("L'Adoration des Mages", "Pres_Adoration");
+        Dico.Add("Le Buste d'Annibal", "Pres_Annibal");
+        Dico.Add("La Création d'Adam", "Pres_Creation");
+        Dico.Add("La Cène", "Pres_Cene");
+        Dico.Add("David", "Pres_David");
+        Dico.Add("Le Jardin des Délices", "Pres_Jardin");
+        Dico.Add("La Joconde", "Pres_Joconde");
+        Dico.Add("L'Enfant à l'Oie", "Pres_Enfant");
+        Dico.Add("La Madone Sixtine", "Pres_Madone");
+        Dico.Add("Moïse", "Pres_Moise");
+        Dico.Add("La Naissance de Vénus","Pres_Naissance");
+        Dico.Add("Les Noces de Cana", "Pres_Noces"); 
 
     }
 
@@ -43,6 +55,7 @@ public class PNJGuide : MonoBehaviour
         }
         initDico();
         IsGuiding = false;    
+        Debug.Log("IsGuiding = false");
     }
 
     private void Choose(string nom){
@@ -51,14 +64,22 @@ public class PNJGuide : MonoBehaviour
         if (oeuvre != null){
             Oeuvre = oeuvre.transform;
             Debug.Log("Objet Trouvé");
-            IsGuiding = true;
+            float dist = Vector3.Distance(transform.position, Oeuvre.position);
+            Debug.Log(dist);
+            if(dist > 5f){
+                // Guide uniquement si le PNJ est à plus de 5m de l'oeuvre  
+                IsGuiding = true;
+                Debug.Log("IsGuiding = True");
+            }
         } else {
             Debug.Log("Objet Non trouvé");
         }
     }
 
-    void OnTriggerEnter(){
-        Choose("L'Amphitrite");
+    void OnTriggerEnter(Collider other){
+        if(other.CompareTag("Player")){
+            Choose("La Joconde");
+        }
     }
 
     private void Update()
@@ -70,15 +91,18 @@ public class PNJGuide : MonoBehaviour
                 return; 
             }
             float distanceToOeuvre = Vector3.Distance(transform.position, Oeuvre.position);
-
+            Debug.Log(distanceToOeuvre);
+            Debug.Log(stoppingDistance);
             if (distanceToOeuvre > stoppingDistance)
             {
                 navMeshAgent.SetDestination(Oeuvre.position);
                 animator.SetBool("IsWalking", true);
+                
             }
             else
             {
                 IsGuiding = false;
+                Debug.Log("IsGuiding = false");
                 navMeshAgent.ResetPath();
                 animator.SetBool("IsWalking", false);
             } 

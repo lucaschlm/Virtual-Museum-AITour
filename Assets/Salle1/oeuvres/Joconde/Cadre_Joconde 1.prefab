@@ -121,6 +121,37 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!1 &7413469421562370159
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3812760101734925388}
+  m_Layer: 0
+  m_Name: Cible_Joconde
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3812760101734925388
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7413469421562370159}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0.716, y: -0.7, z: 0.802}
+  m_LocalScale: {x: 0.49999988, y: 0.5, z: 0.49999988}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8841191317623016661}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &500445654515045300
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -414,6 +445,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: f2839eb4f4ab9864f881b896e33f9827, type: 3}
       insertIndex: -1
       addedObject: {fileID: 668307457425074204}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: f2839eb4f4ab9864f881b896e33f9827, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3812760101734925388}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2839eb4f4ab9864f881b896e33f9827, type: 3}
 --- !u!4 &8841191317623016661 stripped

@@ -121,6 +121,37 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!1 &7683036275707934630
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4909443066055550058}
+  m_Layer: 0
+  m_Name: Cible_Amphitrite
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4909443066055550058
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7683036275707934630}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 6.72, y: -0.32, z: -4.184}
+  m_LocalScale: {x: 2, y: 1, z: 0.6666667}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8914264321749679888}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2757492294895944088
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -386,6 +417,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 28e05133da4356a4481dc9bd40ad9986, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5255578468331653876}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 28e05133da4356a4481dc9bd40ad9986, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4909443066055550058}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 28e05133da4356a4481dc9bd40ad9986, type: 3}
       insertIndex: -1

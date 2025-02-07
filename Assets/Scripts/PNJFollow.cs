@@ -81,13 +81,14 @@ public class PNJFollow : MonoBehaviour
     void OnTriggerEnter(Collider other){
         // Fonction pour essayer
         if(other.CompareTag("Player")){
-            Choose("Les Noces de Cana");
+            Choose("Moïse");
         }
     }
 
 
     private void Update()
     {
+        float distanceToPlayer = Vector3.Distance(transform.position, player.position);
         if(IsGuiding){
             if (Oeuvre == null) 
             {
@@ -97,8 +98,13 @@ public class PNJFollow : MonoBehaviour
             float distanceToOeuvre = Vector3.Distance(transform.position, Oeuvre.position);
             if (distanceToOeuvre > stoppingDistanceOeuvre)
             {
-                navMeshAgent.SetDestination(Oeuvre.position);
-                animator.SetBool("IsWalking", true);
+                if(distanceToPlayer < System.Math.Max(0.3*distanceToOeuvre,2)){
+                    navMeshAgent.SetDestination(Oeuvre.position);
+                    animator.SetBool("IsWalking", true);
+                } else {
+                    navMeshAgent.ResetPath();
+                    animator.SetBool("IsWalking", false);
+                }
                 
             }
             else
@@ -113,7 +119,6 @@ public class PNJFollow : MonoBehaviour
                 Debug.LogError($"[PNJFollow] Attribut player non attribué !");
                 return; 
             }
-            float distanceToPlayer = Vector3.Distance(transform.position, player.position);
 
             if (distanceToPlayer > stoppingDistance)
             {

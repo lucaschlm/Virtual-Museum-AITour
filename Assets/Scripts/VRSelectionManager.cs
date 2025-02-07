@@ -53,11 +53,10 @@ public class VRSelectionManager : MonoBehaviour
 
     private void HighlightSelection(GameObject obj, bool highlight)
     {
-        Renderer renderer = obj.GetComponent<Renderer>();
-        if (renderer != null)
+        Outline outline = obj.GetComponent<Outline>();
+        if (outline != null)
         {
-            Color color = highlight ? Color.yellow : Color.white;
-            renderer.material.color = color;
+            outline.enabled = highlight;
         }
     }
 }

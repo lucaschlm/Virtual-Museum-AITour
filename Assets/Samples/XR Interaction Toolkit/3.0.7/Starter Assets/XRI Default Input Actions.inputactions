@@ -2046,6 +2046,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Activate Mic",
+                    "type": "Button",
+                    "id": "4b22ca7b-9887-4781-b2ae-09a06d823aa3",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -2334,6 +2343,39 @@
                     "action": "Translate Manipulation",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "441dc48e-7e30-4028-b097-546a4143d2d0",
+                    "path": "<XRController>{RightHand}/primaryButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Activate Mic",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d7c6ce0f-e04c-4a37-8add-7b4db2cfae05",
+                    "path": "<Keyboard>/semicolon",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Activate Mic",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5146e099-defe-4b7f-ac18-81b3f40cd144",
+                    "path": "<XRSimulatedController>{RightHand}/primaryButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Activate Mic",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -2354,7 +2396,7 @@
                     "name": "Teleport Mode Cancel",
                     "type": "Button",
                     "id": "d587b60c-39a0-4365-8075-477ce484ba0f",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false

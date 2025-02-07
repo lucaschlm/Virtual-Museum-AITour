@@ -2,6 +2,7 @@ using System;
 using System.Text;
 using Meta.WitAi.Events;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Meta.WitAi.Dictation
 {
@@ -13,7 +14,8 @@ namespace Meta.WitAi.Dictation
         [SerializeField] private string activationSeparator = String.Empty;
 
         [Header("Events")]
-        [SerializeField] private WitTranscriptionEvent onTranscriptionUpdated = new
+        [SerializeField]
+        private WitTranscriptionEvent onTranscriptionUpdated = new
             WitTranscriptionEvent();
 
         private StringBuilder _text;
@@ -21,6 +23,7 @@ namespace Meta.WitAi.Dictation
         private bool _newSection;
 
         private StringBuilder _separator;
+        
 
         private void Awake()
         {
@@ -37,6 +40,8 @@ namespace Meta.WitAi.Dictation
             {
                 _separator.Append(activationSeparator);
             }
+
+
         }
 
         private void OnEnable()
@@ -97,17 +102,22 @@ namespace Meta.WitAi.Dictation
                 if (transcription.Length > 0)
                 {
                     transcription.Append(_separator);
-                    
+
                 }
 
                 if (!string.IsNullOrEmpty(_activeText))
                 {
                     transcription.Append(_activeText);
-                    
+
                 }
             }
 
             onTranscriptionUpdated.Invoke(transcription.ToString());
         }
+
     }
 }
+
+
+
+

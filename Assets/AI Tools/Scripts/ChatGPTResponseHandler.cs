@@ -5,6 +5,9 @@ using UnityEngine.UI;
 public class ChatGPTResponseHandler : MonoBehaviour
 {
     [SerializeField]
+    public string _answer = "";
+
+    [SerializeField]
     public TMPro.TMP_Text m_textFieldTMP;
     //public InputField m_textFieldInput;
 
@@ -12,12 +15,14 @@ public class ChatGPTResponseHandler : MonoBehaviour
     {
         // Abonnement à l'événement OnRequestCompleted du EventManager
         EventManager.Instance.OnRequestCompleted += HandleResponse;
+        _answer = "";
     }
 
     // Méthode appelée quand l'événement est déclenché
     private void HandleResponse(string response)
     {
-        PrintOnTextBox(response);
+        _answer = response;
+        PrintOnTextBox(_answer);
         Debug.Log("Réponse reçue : " + response);
     }
 

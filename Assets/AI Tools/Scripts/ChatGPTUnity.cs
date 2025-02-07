@@ -1,38 +1,114 @@
 using UnityEngine;
 using UnityEngine.Networking;
 using System.Collections;
+using UnityEngine.UI;
 
 public class ChatGPTUnity : MonoBehaviour
 {
     [SerializeField]
-    private string apiKey = "";
+    private string m_apiKey = "";
 
-    private string _prompt = "";
+
+    [TextArea(3, 10)] // Min 3 lignes, max 10 lignes visibles dans l'Inspector
+    [SerializeField]
+    private string m_promptInitial = "";
+
+
+    [TextArea(3, 10)] // Min 3 lignes, max 10 lignes visibles dans l'Inspector
+    [SerializeField]
+    private string m_prompt = "";
+
+    [TextArea(3, 10)] // Min 3 lignes, max 10 lignes visibles dans l'Inspector
+    [SerializeField]
+    private string m_answer = "";
+
+    [SerializeField]
+    private TMPro.TMP_Text m_textFieldTMP;
+    //public InputField m_textFieldInput;
+
+    private bool m_isListening = false;
+
+    [SerializeField]
+    private bool m_enableTestPrompt = false;
+
+    [TextArea(3, 10)] // Min 3 lignes, max 10 lignes visibles dans l'Inspector
+    [SerializeField]
+    private string m_promptTest = "";
 
     void Start()
     {
         EventManager.Instance.OnAddedToPrompt += HandleAddedToPrompt;
         EventManager.Instance.OnRequestSended += HandleRequest;
+        EventManager.Instance.OnRequestCompleted += HandleResponse;
+
+        if (m_promptInitial != "")
+        {
+            HandleAddedToPrompt(m_promptTest);
+            HandleRequest();
+        }
+
+
+        if (m_textFieldTMP == null)
+        {
+            Debug.Log("[ChatGPTUnity.cs] : N'a pas de 'textFieldTMP'");
+        }
+
+        m_answer = "";
         ClearPrompt();
-        HandleAddedToPrompt("A partir de ce message répond en très peu de mots pour minimiser les tokens utilisés (15-20 mots maximum). Présente-toi en tant qu'IA et demande-moi si je vais bien");
-        HandleRequest();
+
+        if (m_enableTestPrompt)
+        {
+            // Test de début de réponse pour ChatGPT
+            HandleAddedToPrompt(m_promptTest);
+            HandleRequest();
+        }
     }
 
     void HandleAddedToPrompt(string prompt)
     {
-        _prompt = _prompt + prompt;
+        if (!m_isListening)
+        {
+            ClearPrompt();
+            m_isListening = true;
+        }
+
+        m_prompt = m_prompt + prompt;
     }
+
+
 
     void ClearPrompt()
     {
-        _prompt = "";
+        m_prompt = "";
     }
+
 
     void HandleRequest()
     {
-        StartCoroutine(SendRequestToChatGPT(_prompt));
-        ClearPrompt();
+        StartCoroutine(SendRequestToChatGPT(m_prompt));
+        m_isListening = false;
     }
+
+
+    private void HandleResponse(string response)
+    {
+        m_answer = response;
+        if (m_textFieldTMP != null)
+        {
+            PrintOnTextBox(m_answer);
+        }
+        Debug.Log("ChatGPT : " + response);
+    }
+
+
+    private void PrintOnTextBox(string response)
+    {
+        m_textFieldTMP.text = "";
+        m_textFieldTMP.text = response;
+        //m_textFieldInput.text = response;
+    }
+
+
 
     IEnumerator SendRequestToChatGPT(string prompt)
     {
@@ -44,16 +120,16 @@ public class ChatGPTUnity : MonoBehaviour
         request.uploadHandler = new UploadHandlerRaw(bodyRaw);
         request.downloadHandler = new DownloadHandlerBuffer();
         request.SetRequestHeader("Content-Type", "application/json");
-        request.SetRequestHeader("Authorization", "Bearer " + apiKey);
+        request.SetRequestHeader("Authorization", "Bearer " + m_apiKey);
 
         // Pour voir ce qu'on envoie
-        Debug.Log("JSON envoyé : " + json);
+        //Debug.Log("JSON envoyé : " + json);
 
         yield return request.SendWebRequest();  // Sortie de la coroutine
 
         if (request.result == UnityWebRequest.Result.Success)
         {
-            Debug.Log("Réponse complète : " + request.downloadHandler.text);
+            //Debug.Log("Réponse complète : " + request.downloadHandler.text);
             EventManager.Instance.TriggerRequestCompleted(ExtractContent(request.downloadHandler.text));
         }
         else
@@ -88,8 +164,11 @@ public class ChatGPTUnity : MonoBehaviour
 
     private void OnDestroy()
     {
-        // Desabonnement
+        EventManager.Instance.OnAddedToPrompt -= HandleAddedToPrompt;
         EventManager.Instance.OnRequestSended -= HandleRequest;
+        EventManager.Instance.OnRequestCompleted -= HandleResponse;
     }
 }
+
+
 

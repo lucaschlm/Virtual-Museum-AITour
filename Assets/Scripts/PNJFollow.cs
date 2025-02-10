@@ -25,7 +25,8 @@ public class PNJFollow : MonoBehaviour
     private Dictionary<string, string> Dico = new Dictionary<string, string>();
 
     private void initDico(){
-        Dico.Add("L'Amphitrite", "Cible_Amphitrite");
+        Dico.Add("Amphitrite", "Cible_Amphitrite");
+        Dico.Add("L'Amphitrite","Cible_Amphitrite");
         Dico.Add("L'Adoration des Mages", "Cible_Adoration");
         Dico.Add("Le Buste d'Annibal", "Cible_Annibal");
         Dico.Add("La Création d'Adam", "Cible_Creation");
@@ -39,6 +40,7 @@ public class PNJFollow : MonoBehaviour
         Dico.Add("La Naissance de Vénus","Cible_Naissance");
         Dico.Add("Les Noces de Cana", "Cible_Noces"); 
         Dico.Add("Sortie","Cible_Sortie");
+        Dico.Add("Suivant","Cible_Next");
     }
 
     private void Awake()

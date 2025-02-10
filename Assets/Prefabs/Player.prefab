@@ -944,6 +944,7 @@ GameObject:
   - component: {fileID: 7506187541453747608}
   - component: {fileID: 1123662578295065995}
   - component: {fileID: 6267619211992814787}
+  - component: {fileID: 7160883680699849278}
   m_Layer: 2
   m_Name: Player
   m_TagString: Untagged
@@ -1097,6 +1098,22 @@ MonoBehaviour:
   maxDistance: 10
   selectLeftAction: {fileID: -5982496924579745919, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   selectRightAction: {fileID: 83097790271614945, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  hoverColor: {r: 0, g: 1, b: 0, a: 1}
+  selectionColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+--- !u!114 &7160883680699849278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2800155017036431248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40e0c6aed5ec6a641abe360aa0cfe134, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveProvider: {fileID: 0}
+  turnProvider: {fileID: 0}
 --- !u!1 &3032912334196620061
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,8 +6,9 @@ public class EventManager : MonoBehaviour
 {
 
     public delegate void MyDelegateFonction(string message);
-    
-    public event MyDelegateFonction OnRequestSended;
+
+    public event MyDelegateFonction OnAddedToPrompt;
+    public event Action OnRequestSended;
     public event Action<string> OnRequestCompleted;
 
     public static EventManager Instance { get; private set; }
@@ -30,9 +31,14 @@ public class EventManager : MonoBehaviour
         OnRequestCompleted?.Invoke(message);
     }
 
-    public void TriggerRequestSended(string message)   
+    public void TriggerRequestSended()   
     {
-        OnRequestSended?.Invoke(message);
+        OnRequestSended?.Invoke();
+    }
+
+    public void TriggerOnAddedToPrompt(string message)
+    {
+        OnAddedToPrompt?.Invoke(message);
     }
 
 

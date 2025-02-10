@@ -38,6 +38,7 @@ public class PNJFollow : MonoBehaviour
         Dico.Add("Moïse", "Cible_Moise");
         Dico.Add("La Naissance de Vénus","Cible_Naissance");
         Dico.Add("Les Noces de Cana", "Cible_Noces"); 
+        Dico.Add("Sortie","Cible_Sortie");
     }
 
     private void Awake()
@@ -60,8 +61,8 @@ public class PNJFollow : MonoBehaviour
         IsGuiding = false;
     }
 
-    private void Choose(string nom){
-
+    public void Choose(string nom){
+        Debug.Log("Direction : " + nom);
         GameObject oeuvre = GameObject.Find(Dico[nom]);
         if (oeuvre != null){
             Oeuvre = oeuvre.transform;

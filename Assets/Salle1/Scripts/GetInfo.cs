@@ -53,6 +53,7 @@ class GetInfo : MonoBehaviour {
     private void quizValide(MessageData data){
         if(data.quiz.score != null && data.quiz.correct != null){
             if(data.quiz.score == 5 && data.quiz.correct){
+                Debug.Log("Le quiz est validée");
                 gameManager.Valide(true);
             }
         }
@@ -60,8 +61,12 @@ class GetInfo : MonoBehaviour {
 
     // Donne une cible au PNJ
     private void guideTo(MessageData data){
+        Debug.Log(currentScene);
+        Debug.Log(data.informations.salle);
         if(data.informations.salle != null && data.informations.salle == currentScene){
+            Debug.Log("On est dans la bonne salle");
             if(data.informations.oeuvre != null){
+                Debug.Log("Je guide vers " + data.informations.oeuvre);
                 pnj.Choose(data.informations.oeuvre);
             }
         }
@@ -78,16 +83,19 @@ class GetInfo : MonoBehaviour {
     }
 
     void Start(){
-        initGM();
         // Initialisation des constantes;
+        initGM();
         currentScene = SceneManager.GetActiveScene().name; 
         pnj = PNJ.GetComponent<PNJFollow>();
 
-        message = "{ \"message\": \"Voici les informations de l'œuvre\", \"informations\": { \"salle\": \"Renaissance\", \"oeuvre\": \"La Joconde\", \"correct\": true } }";
-
+        // message = "{ \"message\": \"Voici les informations de l'œuvre\", \"informations\": { \"salle\": \"Renaissance\", \"oeuvre\": \"La Joconde\", \"correct\": true } }";
+        message = "{\"message\": \"Commençons notre visite avec 'La Création d'Adam', une fresque emblématique de Michel-Ange. Cette scène, peinte sur la voûte de la chapelle Sixtine, représente Dieu donnant la vie à Adam d’un simple geste de la main. Avez-vous des questions ou passons-nous à l'œuvre suivante ?\",\"quiz\": {\"correct\": true,\"score\": 5},\"informations\": {\"salle\": \"Renaissance\",\"oeuvre\": \"La Création d'Adam\"}}";
         MessageData data = exportInfo(message);
 
+
         Debug.Log(getMessage(data));
+        guideTo(data);
+        quizValide(data);
 
     }
         

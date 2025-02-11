@@ -30,6 +30,7 @@ public class PNJFollow : MonoBehaviour
         Dico.Add("L'Adoration des Mages", "Cible_Adoration");
         Dico.Add("Le Buste d'Annibal", "Cible_Annibal");
         Dico.Add("La Création d'Adam", "Cible_Creation");
+        Dico.Add("La Création dAdam", "Cible_Creation");
         Dico.Add("La Cène", "Cible_Cene");
         Dico.Add("David", "Cible_David");
         Dico.Add("Le Jardin des Délices", "Cible_Jardin");

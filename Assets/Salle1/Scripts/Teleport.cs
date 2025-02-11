@@ -10,9 +10,23 @@ public class Teleport : MonoBehaviour{
     private Image fadeImage;
     [SerializeField]
     private string scene;
+    
+    private GameManager gameManager;  
+    private GameObject TptoNext;
 
     void Start(){
         StartCoroutine(FadeFromBlack()); // Retire le noir au début
+        GameObject GM = GameObject.Find("GameManager");
+        gameManager = GM.GetComponent<GameManager>();
+        if(gameObject.CompareTag("TptoNext")){
+            if(gameManager.isValidee()){ // ici 
+                gameObject.SetActive(true);
+                Debug.Log("Objet Activé");
+            } else {
+                Debug.Log("Objet Désactivé");
+                gameObject.SetActive(false);
+            }
+        }
     }
 
 
@@ -31,7 +45,15 @@ public class Teleport : MonoBehaviour{
 
         asyncLoad.allowSceneActivation = true; // Active la scène
 
-        
+        gameManager.Move(name);
+        // TptoNext = GameObject.Find("TptoNext");
+        // if(gameManager.isValidee()){
+        //     TptoNext.SetActive(true);
+        //     Debug.Log("Salle validé");
+        // } else {
+        //     Debug.Log("Salle non validé");
+        //     TptoNext.SetActive(false);
+        // }
     }
 
     void OnTriggerEnter(Collider other){

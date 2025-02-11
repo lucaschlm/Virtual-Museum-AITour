@@ -606,6 +606,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TptoNext
       objectReference: {fileID: 0}
+    - target: {fileID: 4288482345701494666, guid: cb0baa981a1b63d4abd95ab274f7fce3, type: 3}
+      propertyPath: m_TagString
+      value: TptoNext
+      objectReference: {fileID: 0}
     - target: {fileID: 5583500488395835092, guid: cb0baa981a1b63d4abd95ab274f7fce3, type: 3}
       propertyPath: m_Camera
       value: 

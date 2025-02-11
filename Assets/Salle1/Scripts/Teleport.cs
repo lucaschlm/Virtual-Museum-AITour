@@ -21,9 +21,9 @@ public class Teleport : MonoBehaviour{
         if(gameObject.CompareTag("TptoNext")){
             if(gameManager.isValidee()){ // ici 
                 gameObject.SetActive(true);
-                Debug.Log("Objet Activé");
+                // Debug.Log("Objet Activé");
             } else {
-                Debug.Log("Objet Désactivé");
+                // Debug.Log("Objet Désactivé");
                 gameObject.SetActive(false);
             }
         }
@@ -46,21 +46,11 @@ public class Teleport : MonoBehaviour{
         asyncLoad.allowSceneActivation = true; // Active la scène
 
         gameManager.Move(name);
-        // TptoNext = GameObject.Find("TptoNext");
-        // if(gameManager.isValidee()){
-        //     TptoNext.SetActive(true);
-        //     Debug.Log("Salle validé");
-        // } else {
-        //     Debug.Log("Salle non validé");
-        //     TptoNext.SetActive(false);
-        // }
     }
 
     void OnTriggerEnter(Collider other){
         if(other.CompareTag("Player")){
-            
             StartCoroutine(LoadSceneAsync(scene));
-
         }
     }
 

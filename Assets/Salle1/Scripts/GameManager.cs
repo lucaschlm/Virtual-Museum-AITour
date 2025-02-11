@@ -6,39 +6,40 @@ public class GameManager : MonoBehaviour {
     // Liste doublement chaînée avec le nom et un bool si le joueur à validé le quizz ? 
     private DoublyLinkedList Liste;
     private Node Current;
+    private GameObject TptoNext;
 
     void Start(){
         Liste = new DoublyLinkedList();
         Liste.Add("Start", true);
         Current = Liste.head;
-        // Liste.Add("Renaissance",false);
-        Debug.Log("Noeud actuel : " + Current.Salle);
+        TptoNext = GameObject.FindGameObjectWithTag("TptoNext");
+        // Debug.Log("Noeud actuel : " + Current.Salle);
     } 
 
+    // Change de salle
     public void Move(string scene){
         Debug.Log("Bon appel à Move");
         if(Current.Prev != null && scene == Current.Prev.Salle){ // Retour en arrière
             Current = Current.Prev;
-            Debug.Log("Je vais à la salle : " + Current.Salle);
         } else if ( Current.Next != null && scene == Current.Next.Salle){ // Avance en avant
             Current = Current.Next;
-            Debug.Log("Je vais à la salle : " + Current.Salle);
         } else { // Nouvelle salle
             Liste.Add(scene,false);
             Current = Current.Next;
-            Debug.Log("Création nouvelle salle : " + Current.Salle);
         }
-
-        Debug.Log("Liste chaineé :");
-        Liste.Display();
     }
 
+    // renvoie vrai si la salle est validée
     public bool isValidee(){
         return Current.Validee;
     }
 
+    // Valide la scène et affiche le Tp
     public void Valide(bool v){
         Current.Validee = v;
+        if(TptoNext != null){
+            TptoNext.SetActive(v);
+        }
     }
 
 

@@ -64,21 +64,23 @@ public class PNJFollow : MonoBehaviour
     }
 
     public void Choose(string nom){
-        Debug.Log("Direction : " + nom);
-        GameObject oeuvre = GameObject.Find(Dico[nom]);
-        if (oeuvre != null){
-            Oeuvre = oeuvre.transform;
-            Debug.Log("Objet Trouvé");
-            float dist = Vector3.Distance(transform.position, Oeuvre.position);
-            Debug.Log(dist);
-            if(dist > 4f){
-                // Guide uniquement si le PNJ est à plus de 5m de l'oeuvre  
-                IsGuiding = true;
-                Debug.Log("IsGuiding = True");
-            }
-        } else {
-            Debug.Log("Objet Non trouvé");
+        if(Dico.ContainsKey(nom)){
+            GameObject oeuvre = GameObject.Find(Dico[nom]);
+            if (oeuvre != null){
+                Oeuvre = oeuvre.transform;
+                // Debug.Log("Objet Trouvé");
+                float dist = Vector3.Distance(transform.position, Oeuvre.position);
+                // Debug.Log(dist);
+                if(dist > 4f){
+                    // Guide uniquement si le PNJ est à plus de 5m de l'oeuvre  
+                    IsGuiding = true;
+                    // Debug.Log("IsGuiding = True");
+                }
+            } else {
+                Debug.Log("Objet Non trouvé");
+            }  
         }
+        
     }
 
     void OnTriggerEnter(Collider other){

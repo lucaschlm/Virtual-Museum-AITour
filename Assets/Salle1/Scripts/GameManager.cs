@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour {
         Liste = new DoublyLinkedList();
         Liste.Add("Start", true);
         Current = Liste.head;
-        TptoNext = GameObject.FindGameObjectWithTag("TptoNext");
+        // TptoNext = GameObject.FindGameObjectWithTag("TptoNext");
         // Debug.Log("Noeud actuel : " + Current.Salle);
     } 
 
@@ -37,8 +37,13 @@ public class GameManager : MonoBehaviour {
     // Valide la scène et affiche le Tp
     public void Valide(bool v){
         Current.Validee = v;
-        if(TptoNext != null){
-            TptoNext.SetActive(v);
+        if(v){
+            // Bug encore un peu, on verra demain
+            TptoNext = GameObject.FindGameObjectWithTag("TptoNext");
+            if(TptoNext != null){
+                Debug.Log("Je vais ici?");
+                TptoNext.SetActive(true);
+            }
         }
     }
 

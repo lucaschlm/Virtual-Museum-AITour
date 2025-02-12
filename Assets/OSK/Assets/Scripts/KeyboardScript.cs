@@ -44,12 +44,12 @@ public class KeyboardScript : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-            EventManager.Instance.TriggerOnAddedToPrompt(TextField.text);
-            EventManager.Instance.TriggerRequestSended();
-            TextField.text = "";
-        }
+        //if (Input.GetKeyDown(KeyCode.Return))
+        //{
+        //    EventManager.Instance.TriggerOnAddedToPrompt(TextField.text);
+        //    EventManager.Instance.TriggerRequestSended();
+        //    TextField.text = "";
+        //}
     }
 
 }

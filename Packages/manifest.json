@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.unity.sentis": "1.4.0-pre.3",
     "com.meta.xr.sdk.voice.dictation": "64.0.0",
     "com.unity.ai.navigation": "2.0.5",
     "com.unity.collab-proxy": "2.6.0",

@@ -66,6 +66,7 @@ public class ChatGPTUnity : MonoBehaviour
 
     void HandleAddedToPrompt(string prompt)
     {
+        //Debug.Log("Ajouté au prompt : " + prompt);
         if (!m_isListening)
         {
             ClearPrompt();
@@ -85,6 +86,7 @@ public class ChatGPTUnity : MonoBehaviour
 
     void HandleRequest()
     {
+        //Debug.Log("Prompt envoyé : " +  m_prompt);
         StartCoroutine(SendRequestToChatGPT(m_prompt));
         m_isListening = false;
     }

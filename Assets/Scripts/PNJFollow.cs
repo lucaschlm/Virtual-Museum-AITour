@@ -25,10 +25,12 @@ public class PNJFollow : MonoBehaviour
     private Dictionary<string, string> Dico = new Dictionary<string, string>();
 
     private void initDico(){
-        Dico.Add("L'Amphitrite", "Cible_Amphitrite");
+        Dico.Add("Amphitrite", "Cible_Amphitrite");
+        Dico.Add("L'Amphitrite","Cible_Amphitrite");
         Dico.Add("L'Adoration des Mages", "Cible_Adoration");
         Dico.Add("Le Buste d'Annibal", "Cible_Annibal");
         Dico.Add("La Création d'Adam", "Cible_Creation");
+        Dico.Add("La Création dAdam", "Cible_Creation");
         Dico.Add("La Cène", "Cible_Cene");
         Dico.Add("David", "Cible_David");
         Dico.Add("Le Jardin des Délices", "Cible_Jardin");
@@ -38,6 +40,8 @@ public class PNJFollow : MonoBehaviour
         Dico.Add("Moïse", "Cible_Moise");
         Dico.Add("La Naissance de Vénus","Cible_Naissance");
         Dico.Add("Les Noces de Cana", "Cible_Noces"); 
+        Dico.Add("Sortie","Cible_Sortie");
+        Dico.Add("Suivant","Cible_Next");
     }
 
     private void Awake()
@@ -60,22 +64,24 @@ public class PNJFollow : MonoBehaviour
         IsGuiding = false;
     }
 
-    private void Choose(string nom){
-
-        GameObject oeuvre = GameObject.Find(Dico[nom]);
-        if (oeuvre != null){
-            Oeuvre = oeuvre.transform;
-            Debug.Log("Objet Trouvé");
-            float dist = Vector3.Distance(transform.position, Oeuvre.position);
-            Debug.Log(dist);
-            if(dist > 4f){
-                // Guide uniquement si le PNJ est à plus de 5m de l'oeuvre  
-                IsGuiding = true;
-                Debug.Log("IsGuiding = True");
-            }
-        } else {
-            Debug.Log("Objet Non trouvé");
+    public void Choose(string nom){
+        if(Dico.ContainsKey(nom)){
+            GameObject oeuvre = GameObject.Find(Dico[nom]);
+            if (oeuvre != null){
+                Oeuvre = oeuvre.transform;
+                // Debug.Log("Objet Trouvé");
+                float dist = Vector3.Distance(transform.position, Oeuvre.position);
+                // Debug.Log(dist);
+                if(dist > 4f){
+                    // Guide uniquement si le PNJ est à plus de 5m de l'oeuvre  
+                    IsGuiding = true;
+                    // Debug.Log("IsGuiding = True");
+                }
+            } else {
+                Debug.Log("Objet Non trouvé");
+            }  
         }
+        
     }
 
     void OnTriggerEnter(Collider other){

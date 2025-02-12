@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour {
 
     // renvoie vrai si la salle est validée
     public bool isValidee(){
-        return Current.Validee;
+        return Current.getValide();
     }
 
     // Valide la scène et affiche le Tp
@@ -39,10 +39,17 @@ public class GameManager : MonoBehaviour {
         Current.Validee = v;
         if(v){
             // Bug encore un peu, on verra demain
-            TptoNext = GameObject.FindGameObjectWithTag("TptoNext");
-            if(TptoNext != null){
-                Debug.Log("Je vais ici?");
-                TptoNext.SetActive(true);
+            GameObject Tp = GameObject.Find("Tp");
+            if(Tp != null){
+                TptoNext = Tp.transform.Find("TptoNext").gameObject;
+                if(TptoNext != null){
+                    Debug.Log("Je trouve le TP");
+                    TptoNext.SetActive(true);
+                    Teleport tptonext = TptoNext.GetComponent<Teleport>();
+                    tptonext.RetireNoir();
+                } else {
+                    Debug.Log("Je ne trouve pas le TP");
+                }
             }
         }
     }
@@ -68,6 +75,9 @@ class Node
         Next = null;
     }
 
+    public bool getValide(){
+        return Validee;
+    }
 
 }
 

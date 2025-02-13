@@ -8,6 +8,9 @@ public class ChatGPTUnity : MonoBehaviour
     [SerializeField]
     private string m_apiKey = "";
 
+    [SerializeField]
+    private int m_maxToken = 30;
+
 
     [TextArea(3, 10)] // Min 3 lignes, max 10 lignes visibles dans l'Inspector
     [SerializeField]
@@ -41,9 +44,11 @@ public class ChatGPTUnity : MonoBehaviour
         EventManager.Instance.OnRequestSended += HandleRequest;
         EventManager.Instance.OnRequestCompleted += HandleResponse;
 
+        ClearPrompt();
+
         if (m_promptInitial != "")
         {
-            HandleAddedToPrompt(m_promptTest);
+            HandleAddedToPrompt(m_promptInitial);
             HandleRequest();
         }
 
@@ -54,7 +59,7 @@ public class ChatGPTUnity : MonoBehaviour
         }
 
         m_answer = "";
-        ClearPrompt();
+        
 
         if (m_enableTestPrompt)
         {
@@ -115,7 +120,7 @@ public class ChatGPTUnity : MonoBehaviour
     IEnumerator SendRequestToChatGPT(string prompt)
     {
         // Construction manuelle du JSON pour être sûr du format
-        string json = "{\"model\": \"gpt-3.5-turbo\", \"messages\": [{\"role\": \"user\", \"content\": \"" + prompt + "\"}]}";
+        string json = "{\"model\": \"gpt-3.5-turbo\", \"messages\": [{\"role\": \"user\", \"content\": \"" + prompt + "\"}], \"max_tokens\": "+ m_maxToken +"}";
 
         UnityWebRequest request = new UnityWebRequest("https://api.openai.com/v1/chat/completions", "POST");
         byte[] bodyRaw = System.Text.Encoding.UTF8.GetBytes(json);

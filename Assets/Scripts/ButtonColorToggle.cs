@@ -31,6 +31,12 @@ public class ButtonColorToggle : MonoBehaviour
         colors.normalColor = activeColor;
         colors.selectedColor = activeColor;
         button.colors = colors;
+
+        Image btnImage = button.GetComponent<Image>();
+        if (btnImage != null)
+        {
+            btnImage.color = activeColor;
+        }
     }
 
     void ResetButtonColors()
@@ -41,6 +47,12 @@ public class ButtonColorToggle : MonoBehaviour
             colors.normalColor = defaultColor;
             colors.selectedColor = defaultColor;
             btn.colors = colors;
+
+            Image btnImage = btn.GetComponent<Image>();
+            if (btnImage != null)
+            {
+                btnImage.color = defaultColor;
+            }
         }
     }
 }

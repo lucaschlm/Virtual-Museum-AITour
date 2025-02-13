@@ -15,7 +15,9 @@ using System.IO;
 
 public class RunJets : MonoBehaviour
 {
-    public string inputText = "Once upon a time, there lived a girl called Alice. She lived in a house in the woods.";
+    [TextArea(3, 10)]
+    [SerializeField]
+    public string m_inputText = "Hello visitor. I'm Sharon your guide into this sneak peak of mankind art legacy. Shall we start visitor ?";
     //string inputText = "The quick brown fox jumped over the lazy dog";
     //string inputText = "There are many uses of the things she uses!";
 
@@ -42,11 +44,17 @@ public class RunJets : MonoBehaviour
 
     AudioClip clip;
 
+
+    private void OnEnable()
+    {
+        EventManager.Instance.OnRequestCompleted += TextToSpeech;
+    }
+
+
     void Start()
     {
         LoadModel();
         ReadDictionary();
-        TextToSpeech();
     }
 
     void LoadModel()
@@ -55,13 +63,14 @@ public class RunJets : MonoBehaviour
         engine = WorkerFactory.CreateWorker(BackendType.GPUCompute, model);
     }
 
-    void TextToSpeech()
+    void TextToSpeech(string inputText)
     {
+        m_inputText = inputText;
         string ptext;
         if (hasPhenomeDictionary)
         {
-            ptext = TextToPhonemes(inputText);
-            Debug.Log(ptext);
+            ptext = TextToPhonemes(m_inputText);
+            //Debug.Log(ptext);
         }
         else
         {
@@ -174,7 +183,7 @@ public class RunJets : MonoBehaviour
         output.CompleteOperationsAndDownload();
         var samples = output.ToReadOnlyArray();
 
-        Debug.Log($"Audio size = {samples.Length / samplerate} seconds");
+        //Debug.Log($"Audio size = {samples.Length / samplerate} seconds");
 
         clip = AudioClip.Create("voice audio", samples.Length, 1, samplerate, false);
         clip.SetData(samples, 0);
@@ -195,12 +204,10 @@ public class RunJets : MonoBehaviour
         }
     }
 
-    void Update()
+
+    private void OnDisable()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            TextToSpeech();
-        }
+        EventManager.Instance.OnRequestCompleted -= TextToSpeech;
     }
 
     private void OnDestroy()

@@ -38,6 +38,10 @@ public class ChatGPTUnity : MonoBehaviour
     [SerializeField]
     private string m_promptTest = "";
 
+    [SerializeField]
+    private float typingSpeed = 0.1f;  // Vitesse à laquelle les caractères apparaissent
+
+
     void Start()
     {
         EventManager.Instance.OnAddedToPrompt += HandleAddedToPrompt;
@@ -102,7 +106,7 @@ public class ChatGPTUnity : MonoBehaviour
         m_answer = response;
         if (m_textFieldTMP != null)
         {
-            PrintOnTextBox(m_answer);
+            StartCoroutine(TypeMessage(m_answer));
         }
         Debug.Log("ChatGPT : " + response);
     }
@@ -113,6 +117,16 @@ public class ChatGPTUnity : MonoBehaviour
         m_textFieldTMP.text = "";
         m_textFieldTMP.text = response;
         //m_textFieldInput.text = response;
+    }
+
+    IEnumerator TypeMessage(string message)
+    {
+        m_textFieldTMP.text = "";
+        foreach (char letter in message)
+        {
+            m_textFieldTMP.text += letter;  // Ajoute chaque lettre à l'écran
+            yield return new WaitForSeconds(typingSpeed);  // Attends avant de montrer la prochaine lettre
+        }
     }
 
 

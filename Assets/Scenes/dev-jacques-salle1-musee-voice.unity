@@ -5925,9 +5925,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c26ec7d396aacc4d8cb8a582a8218a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputText: Hello visitor and welcome to this virtual museum. I'm Sharon and I will
-    be your guide into this sneak peak of mankind art legacy. Are you ready to start
-    this journey visitor ?
+  m_inputText: Hello visitor. I'm Sharon your guide into this sneak peak of mankind
+    art legacy. Shall we start visitor ?
 --- !u!4 &1938158789
 Transform:
   m_ObjectHideFlags: 0
@@ -6738,6 +6737,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3323160191053304596, guid: 5c049657eb842dc4dbed01ccccbc641a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7535667124042080076, guid: 5c049657eb842dc4dbed01ccccbc641a, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -6821,6 +6824,18 @@ PrefabInstance:
     - target: {fileID: 8061178164882883033, guid: 5c049657eb842dc4dbed01ccccbc641a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8390473093609192967, guid: 5c049657eb842dc4dbed01ccccbc641a, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8390473093609192967, guid: 5c049657eb842dc4dbed01ccccbc641a, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8390473093609192967, guid: 5c049657eb842dc4dbed01ccccbc641a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 52
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7635,11 +7650,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6828450946644198295, guid: a442d4ad2f76df14792e8442ab02c462, type: 3}
       propertyPath: m_maxToken
-      value: 30
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6828450946644198295, guid: a442d4ad2f76df14792e8442ab02c462, type: 3}
+      propertyPath: typingSpeed
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 6828450946644198295, guid: a442d4ad2f76df14792e8442ab02c462, type: 3}
       propertyPath: m_promptTest
-      value: ' Ou se trouve la Joconde ?'
+      value: Where is Mona Lisa ?
       objectReference: {fileID: 0}
     - target: {fileID: 6828450946644198295, guid: a442d4ad2f76df14792e8442ab02c462, type: 3}
       propertyPath: m_textFieldTMP
@@ -7647,7 +7666,10 @@ PrefabInstance:
       objectReference: {fileID: 1058138403}
     - target: {fileID: 6828450946644198295, guid: a442d4ad2f76df14792e8442ab02c462, type: 3}
       propertyPath: m_promptInitial
-      value: "Pr\xE9sente-toi en tant qu'IA et demande-moi si je vais bien."
+      value: 'You are a NPC guide in a virtual museum in a Unity game. The player
+        will talk in french or english but you will always respond in english. Now
+        say to the player : Hello, visitor. I''m Sharon, your guide on this sneak
+        peek into mankind''s artistic legacy. Shall we begin the tour?'
       objectReference: {fileID: 0}
     - target: {fileID: 6828450946644198295, guid: a442d4ad2f76df14792e8442ab02c462, type: 3}
       propertyPath: m_enableTestPrompt

@@ -3152,6 +3152,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4998207982682127909, guid: a35ad63960bf6bd45acf2c48b7cae001, type: 3}
+      propertyPath: m_Name
+      value: Subtitles (TMP)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7522,14 +7526,17 @@ PrefabInstance:
       objectReference: {fileID: 1058138403}
     - target: {fileID: 6828450946644198295, guid: a442d4ad2f76df14792e8442ab02c462, type: 3}
       propertyPath: m_promptInitial
-      value: 'You are a NPC guide in a virtual museum in a Unity game. The player
-        will talk in french or english but you will always respond in english. Now
-        say to the player : Hello, visitor. I''m Sharon, your guide on this sneak
-        peek into mankind''s artistic legacy. Shall we begin the tour?'
+      value: 'You are a NPC guide in a virtual museum in a Unity game. Now say to
+        the player : Hello, visitor. I''m Sharon, your guide on this sneak peek into
+        mankind''s artistic legacy. Shall we begin the tour?'
       objectReference: {fileID: 0}
     - target: {fileID: 6828450946644198295, guid: a442d4ad2f76df14792e8442ab02c462, type: 3}
       propertyPath: m_enableTestPrompt
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6828450946644198295, guid: a442d4ad2f76df14792e8442ab02c462, type: 3}
+      propertyPath: m_enableInitialPrompt
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7251660862940854912, guid: a442d4ad2f76df14792e8442ab02c462, type: 3}
       propertyPath: m_Name

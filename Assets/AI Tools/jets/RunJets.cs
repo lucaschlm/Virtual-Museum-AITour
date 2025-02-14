@@ -21,6 +21,9 @@ public class RunJets : MonoBehaviour
     //string inputText = "The quick brown fox jumped over the lazy dog";
     //string inputText = "There are many uses of the things she uses!";
 
+
+    //private bool m_stopRequest = false;
+
     //Set to true if we have put the phoneme_dict.txt in the Assets/StreamingAssets folder
     bool hasPhenomeDictionary = true;
 
@@ -48,6 +51,7 @@ public class RunJets : MonoBehaviour
     private void OnEnable()
     {
         EventManager.Instance.OnRequestCompleted += TextToSpeech;
+        EventManager.Instance.OnDictationStarted += HandleStopSpeaking;
     }
 
 
@@ -57,11 +61,15 @@ public class RunJets : MonoBehaviour
         ReadDictionary();
     }
 
+
+
     void LoadModel()
     {
         var model = ModelLoader.Load(Path.Join(Application.streamingAssetsPath ,"jets-text-to-speech.sentis"));
         engine = WorkerFactory.CreateWorker(BackendType.GPUCompute, model);
     }
+
+
 
     void TextToSpeech(string inputText)
     {
@@ -190,6 +198,8 @@ public class RunJets : MonoBehaviour
 
         Speak();
     }
+
+
     private void Speak()
     {
         AudioSource audioSource = GetComponent<AudioSource>();
@@ -205,9 +215,23 @@ public class RunJets : MonoBehaviour
     }
 
 
+    private void HandleStopSpeaking()
+    {
+        AudioSource audioSource = GetComponent<AudioSource>();
+        if (audioSource != null)
+        {
+            audioSource.Stop();
+        }
+        else
+        {
+            Debug.Log("There is no audio source");
+        }
+    }
+
     private void OnDisable()
     {
         EventManager.Instance.OnRequestCompleted -= TextToSpeech;
+        EventManager.Instance.OnDictationStarted -= HandleStopSpeaking;
     }
 
     private void OnDestroy()

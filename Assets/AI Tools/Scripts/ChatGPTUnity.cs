@@ -41,12 +41,15 @@ public class ChatGPTUnity : MonoBehaviour
     [SerializeField]
     private float typingSpeed = 0.1f;  // Vitesse à laquelle les caractères apparaissent
 
+    private Coroutine m_typingCoroutine;
+
 
     void Start()
     {
         EventManager.Instance.OnAddedToPrompt += HandleAddedToPrompt;
         EventManager.Instance.OnRequestSended += HandleRequest;
         EventManager.Instance.OnRequestCompleted += HandleResponse;
+        EventManager.Instance.OnDictationStarted += HandleStopTypingMessage;
 
         ClearPrompt();
 
@@ -106,7 +109,7 @@ public class ChatGPTUnity : MonoBehaviour
         m_answer = response;
         if (m_textFieldTMP != null)
         {
-            StartCoroutine(TypeMessage(m_answer));
+            m_typingCoroutine = StartCoroutine(TypeMessage(m_answer));
         }
         Debug.Log("ChatGPT : " + response);
     }
@@ -126,6 +129,15 @@ public class ChatGPTUnity : MonoBehaviour
         {
             m_textFieldTMP.text += letter;  // Ajoute chaque lettre à l'écran
             yield return new WaitForSeconds(typingSpeed);  // Attends avant de montrer la prochaine lettre
+        }
+    }
+
+
+    private void HandleStopTypingMessage()
+    {
+        if (m_typingCoroutine != null)
+        {
+            StopCoroutine(m_typingCoroutine);
         }
     }
 
@@ -188,6 +200,7 @@ public class ChatGPTUnity : MonoBehaviour
         EventManager.Instance.OnAddedToPrompt -= HandleAddedToPrompt;
         EventManager.Instance.OnRequestSended -= HandleRequest;
         EventManager.Instance.OnRequestCompleted -= HandleResponse;
+        EventManager.Instance.OnDictationStarted -= HandleStopTypingMessage;
     }
 }
 

@@ -39,7 +39,7 @@ public class ChatGPTUnity : MonoBehaviour
 
 
     [SerializeField]
-    private float typingSpeed = 0.05f;  // Vitesse � laquelle les caract�res apparaissent
+    private float typingSpeed = 0.05f;  // Vitesse à laquelle les caractères apparaissent
 
     private Coroutine m_typingCoroutine;
 
@@ -56,7 +56,7 @@ public class ChatGPTUnity : MonoBehaviour
         }
         else
         {
-            Destroy(gameObject); // D�truit les instances en double
+            Destroy(gameObject); // Détruit les instances en double
         }
     }
 
@@ -90,7 +90,7 @@ public class ChatGPTUnity : MonoBehaviour
 
     private void LookForPNJSubtitles()
     {
-        // Trouver le PNJ dans la sc�ne
+        // Trouver le PNJ dans la scène
         GameObject pnj = GameObject.Find("PNJ");
 
         if (pnj != null)
@@ -100,7 +100,7 @@ public class ChatGPTUnity : MonoBehaviour
 
             if (canvasTransform != null)
             {
-                // R�cup�rer le TextMeshProUGUI dans le Canvas
+                // Récupérer le TextMeshProUGUI dans le Canvas
                 m_textFieldTMP = canvasTransform.GetComponentInChildren<TextMeshProUGUI>();
             }
         }
@@ -113,7 +113,7 @@ public class ChatGPTUnity : MonoBehaviour
 
     void HandleAddedToPrompt(string prompt)
     {
-        //Debug.Log("Ajout� au prompt : " + prompt);
+        //Debug.Log("Ajoutï¿½ au prompt : " + prompt);
         if (!m_isListening)
         {
             ClearPrompt();
@@ -133,7 +133,7 @@ public class ChatGPTUnity : MonoBehaviour
 
     void HandleRequest()
     {
-        //Debug.Log("Prompt envoy� : " +  m_prompt);
+        //Debug.Log("Prompt envoyï¿½ : " +  m_prompt);
         StartCoroutine(SendRequestToChatGPT(m_prompt));
         m_isListening = false;
     }
@@ -162,7 +162,7 @@ public class ChatGPTUnity : MonoBehaviour
         m_textFieldTMP.text = "";
         foreach (char letter in message)
         {
-            m_textFieldTMP.text += letter;  // Ajoute chaque lettre � l'�cran
+            m_textFieldTMP.text += letter;  // Ajoute chaque lettre à l'écran
             yield return new WaitForSeconds(typingSpeed);  // Attends avant de montrer la prochaine lettre
         }
     }
@@ -180,7 +180,7 @@ public class ChatGPTUnity : MonoBehaviour
 
     IEnumerator SendRequestToChatGPT(string prompt)
     {
-        // Construction manuelle du JSON pour �tre s�r du format
+        // Construction manuelle du JSON pour être sûr du format
         string json = "{\"model\": \"gpt-3.5-turbo\", \"messages\": [{\"role\": \"user\", \"content\": \"" + prompt + "\"}], \"max_tokens\": "+ m_maxToken +"}";
 
         UnityWebRequest request = new UnityWebRequest("https://api.openai.com/v1/chat/completions", "POST");
@@ -191,19 +191,19 @@ public class ChatGPTUnity : MonoBehaviour
         request.SetRequestHeader("Authorization", "Bearer " + m_apiKey);
 
         // Pour voir ce qu'on envoie
-        //Debug.Log("JSON envoy� : " + json);
+        //Debug.Log("JSON envoyï¿½ : " + json);
 
         yield return request.SendWebRequest();  // Sortie de la coroutine
 
         if (request.result == UnityWebRequest.Result.Success)
         {
-            //Debug.Log("R�ponse compl�te : " + request.downloadHandler.text);
+            //Debug.Log("Rï¿½ponse complï¿½te : " + request.downloadHandler.text);
             EventManager.Instance.TriggerRequestCompleted(ExtractContent(request.downloadHandler.text));
         }
         else
         {
             Debug.LogError("Erreur : " + request.error);
-            Debug.LogError("D�tails : " + request.downloadHandler.text);
+            Debug.LogError("Dï¿½tails : " + request.downloadHandler.text);
         }
     }
 
@@ -211,20 +211,20 @@ public class ChatGPTUnity : MonoBehaviour
 
     public static string ExtractContent(string jsonResponse)
     {
-        // Recherche l'index du d�but et de la fin du contenu
+        // Recherche l'index du dï¿½but et de la fin du contenu
         string startMarker = "\"content\": \"";
         string endMarker = "\"";
 
         int startIndex = jsonResponse.IndexOf(startMarker) + startMarker.Length;
         int endIndex = jsonResponse.IndexOf(endMarker, startIndex);
 
-        // Si les deux marqueurs sont trouv�s, extraire le texte entre les deux
+        // Si les deux marqueurs sont trouvï¿½s, extraire le texte entre les deux
         if (startIndex >= 0 && endIndex >= 0)
         {
             return jsonResponse.Substring(startIndex, endIndex - startIndex);
         }
 
-        // Si les marqueurs ne sont pas trouv�s, retourner une cha�ne vide ou un message d'erreur
+        // Si les marqueurs ne sont pas trouvï¿½s, retourner une chaï¿½ne vide ou un message d'erreur
         return "Content not found!";
     }
 

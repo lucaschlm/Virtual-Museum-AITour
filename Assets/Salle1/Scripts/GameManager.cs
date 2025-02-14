@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour {
     private DoublyLinkedList Liste;
     private Node Current;
     private GameObject TptoNext;
+    public bool SalleValide = false;
 
     void Start(){
         Liste = new DoublyLinkedList();
@@ -56,6 +57,7 @@ public class GameManager : MonoBehaviour {
 
 
     void Update(){
+        Valide(SalleValide);
     }
 }
 

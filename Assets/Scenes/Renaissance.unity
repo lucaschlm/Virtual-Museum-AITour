@@ -148,8 +148,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d530452f338a17c4fad394e90802372f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  message: 
-  PNJ: {fileID: 1562996860}
+  m_message: 
+  m_PNJ: {fileID: 1562996860}
 --- !u!4 &22647712
 Transform:
   m_ObjectHideFlags: 0
@@ -726,7 +726,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6764683077043137709, guid: cb0baa981a1b63d4abd95ab274f7fce3, type: 3}
       propertyPath: scene
-      value: Start
+      value: Impressionnisme
       objectReference: {fileID: 0}
     - target: {fileID: 6764683077043137709, guid: cb0baa981a1b63d4abd95ab274f7fce3, type: 3}
       propertyPath: fadeImage
@@ -6306,6 +6306,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 906c0aa4d51a6864297a4a19772a555f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SalleValide: 0
 --- !u!114 &1923318437
 MonoBehaviour:
   m_ObjectHideFlags: 0

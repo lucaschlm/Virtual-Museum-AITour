@@ -22,28 +22,49 @@ public class PNJFollow : MonoBehaviour
     private static readonly int IsWalking = Animator.StringToHash("isWalking");
 
     private bool IsGuiding;
-    private Dictionary<string, string> Dico = new Dictionary<string, string>();
+    private Dictionary<string, string> m_Renaissance = new Dictionary<string, string>();
+    private Dictionary<string, string> m_Impressionnisme = new Dictionary<string, string>();
 
-    private void initDico(){
-        Dico.Add("Amphitrite", "Cible_Amphitrite");
-        Dico.Add("L'Amphitrite","Cible_Amphitrite");
-        Dico.Add("L'Adoration des Mages", "Cible_Adoration");
-        Dico.Add("Le Buste d'Annibal", "Cible_Annibal");
-        Dico.Add("La Création d'Adam", "Cible_Creation");
-        Dico.Add("La Création dAdam", "Cible_Creation");
-        Dico.Add("La Cène", "Cible_Cene");
-        Dico.Add("David", "Cible_David");
-        Dico.Add("Le Jardin des Délices", "Cible_Jardin");
-        Dico.Add("La Joconde", "Cible_Joconde");
-        Dico.Add("L'Enfant à l'Oie", "Cible_Enfant");
-        Dico.Add("La Madone Sixtine", "Cible_Madone");
-        Dico.Add("Moïse", "Cible_Moise");
-        Dico.Add("La Naissance de Vénus","Cible_Naissance");
-        Dico.Add("Les Noces de Cana", "Cible_Noces"); 
-        Dico.Add("Sortie","Cible_Sortie");
-        Dico.Add("Suivant","Cible_Next");
+    private void initRenaissance(){
+        // Initialisation dictionnaire Renaissance
+        m_Renaissance.Add("Amphitrite", "Cible_Amphitrite");
+        m_Renaissance.Add("L'Amphitrite","Cible_Amphitrite");
+        m_Renaissance.Add("L'Adoration des Mages", "Cible_Adoration");
+        m_Renaissance.Add("Le Buste d'Annibal", "Cible_Annibal");
+        m_Renaissance.Add("La Création d'Adam", "Cible_Creation");
+        m_Renaissance.Add("La Création dAdam", "Cible_Creation");
+        m_Renaissance.Add("La Cène", "Cible_Cene");
+        m_Renaissance.Add("David", "Cible_David");
+        m_Renaissance.Add("Le Jardin des Délices", "Cible_Jardin");
+        m_Renaissance.Add("La Joconde", "Cible_Joconde");
+        m_Renaissance.Add("L'Enfant à l'Oie", "Cible_Enfant");
+        m_Renaissance.Add("La Madone Sixtine", "Cible_Madone");
+        m_Renaissance.Add("Moïse", "Cible_Moise");
+        m_Renaissance.Add("La Naissance de Vénus","Cible_Naissance");
+        m_Renaissance.Add("Les Noces de Cana", "Cible_Noces"); 
+        m_Renaissance.Add("Sortie","Cible_Sortie");
+        m_Renaissance.Add("Suivant","Cible_Next");
     }
     
+    private void initImpressionnisme(){
+        // Initialisation dictionnaire Impressionnisme
+        m_Impressionnisme.Add("Les Parapluies","Cible_Parapluies");
+        m_Impressionnisme.Add("Les Coquelicots","Cible_Coquelicots");
+        m_Impressionnisme.Add("Danse à la campagne", "Cible_Danse_Campagne");
+        m_Impressionnisme.Add("La Neige à Louveciennes", "Cible_Louveciennes");
+        m_Impressionnisme.Add("Femmes au jardin", "Cible_Femmes_Jardin");
+        m_Impressionnisme.Add("Impression, soleil levant", "Cible_Impression");
+        m_Impressionnisme.Add("La Seine à Bougival", "Cible_Bougival");
+        m_Impressionnisme.Add("La Classe de danse", "Cible_Danse");
+        m_Impressionnisme.Add("Le Berceau", "Cible_Berceau");
+        m_Impressionnisme.Add("Boulevard Montmartre, effet de nuit", "Cible_Montmartre");
+        m_Impressionnisme.Add("Le Déjeuner des canotiers", "Cible_Dejeuner");
+        m_Impressionnisme.Add("Le Pont de L'Europe","Cible_Europe");
+        m_Impressionnisme.Add("Vue du petit port de Lorient", "Cible_Lorient");
+        m_Impressionnisme.Add("La Gare Saint-Lazare","Cible_Lazare");
+        m_Impressionnisme.Add("L'Absinthe","Cible_Absinthe");
+    }
+
     private void Awake()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
@@ -60,34 +81,47 @@ public class PNJFollow : MonoBehaviour
             Debug.LogError($"[PNJFollow] Aucun Animator trouvé sur {gameObject.name} !");
             enabled = false;
         }
-        initDico();
+        initRenaissance();
+        initImpressionnisme();
         IsGuiding = false;
     }
 
-    public void Choose(string nom){
-        if(Dico.ContainsKey(nom)){
-            GameObject oeuvre = GameObject.Find(Dico[nom]);
+    // Renvoie une oeuvre si trouvé null sinon
+    private GameObject FindOeuvre(string nom_oeuvre, string scene){
+        GameObject oeuvre = null;
+        if(scene == "Renaissance"){
+            if(m_Renaissance.ContainsKey(nom_oeuvre)){
+                oeuvre = GameObject.Find(m_Renaissance[nom_oeuvre]);
+            }
+        } else if(scene == "Impressionnisme"){
+            if(m_Impressionnisme.ContainsKey(nom_oeuvre)){
+                oeuvre = GameObject.Find(m_Impressionnisme[nom_oeuvre]);
+            }
+        }
+        return oeuvre;
+    }
+
+    public void Choose(string nom, string scene){
+            GameObject oeuvre = FindOeuvre(nom,scene);
             if (oeuvre != null){
                 Oeuvre = oeuvre.transform;
-                // Debug.Log("Objet Trouvé");
                 float dist = Vector3.Distance(transform.position, Oeuvre.position);
-                // Debug.Log(dist);
                 if(dist > 4f){
                     // Guide uniquement si le PNJ est à plus de 5m de l'oeuvre  
                     IsGuiding = true;
-                    // Debug.Log("IsGuiding = True");
                 }
             } else {
                 Debug.Log("Objet Non trouvé");
             }  
         }
         
-    }
+    
 
     void OnTriggerEnter(Collider other){
         // Fonction pour essayer
         if(other.CompareTag("Player")){
-            Choose("Moïse");
+            Choose("Moïse","Renaissance");
+            Choose("Le Berceau","Impressionnisme");
         }
     }
 

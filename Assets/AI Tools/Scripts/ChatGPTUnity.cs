@@ -2,16 +2,24 @@ using UnityEngine;
 using UnityEngine.Networking;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEditor;
+using TMPro;
 
 public class ChatGPTUnity : MonoBehaviour
 {
     [SerializeField]
     private string m_apiKey = "";
 
+    [SerializeField]
+    private int m_maxToken = 50;
+
 
     [TextArea(3, 10)] // Min 3 lignes, max 10 lignes visibles dans l'Inspector
     [SerializeField]
-    private string m_promptInitial = "";
+    private string m_promptInitial = "You are a NPC guide in a virtual museum in a Unity game. Now say to the player : Hello, visitor. I'm Sharon, your guide on this sneak peek into mankind's artistic legacy. Shall we begin the tour?";
+
+    [SerializeField]
+    private bool m_enableInitialPrompt = true;
 
 
     [TextArea(3, 10)] // Min 3 lignes, max 10 lignes visibles dans l'Inspector
@@ -20,7 +28,7 @@ public class ChatGPTUnity : MonoBehaviour
 
     [TextArea(3, 10)] // Min 3 lignes, max 10 lignes visibles dans l'Inspector
     [SerializeField]
-    private string m_answer = "";
+    private string m_response = "";
 
     [SerializeField]
     private TMPro.TMP_Text m_textFieldTMP;
@@ -28,39 +36,78 @@ public class ChatGPTUnity : MonoBehaviour
 
     private bool m_isListening = false;
 
-    [SerializeField]
-    private bool m_enableTestPrompt = false;
 
-    [TextArea(3, 10)] // Min 3 lignes, max 10 lignes visibles dans l'Inspector
+
     [SerializeField]
-    private string m_promptTest = "";
+    private float typingSpeed = 0.05f;  // Vitesse à laquelle les caractères apparaissent
+
+    private Coroutine m_typingCoroutine;
+
+
+
+    public static ChatGPTUnity Instance { get; private set; }
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject); // Rend l'instance persistante
+        }
+        else
+        {
+            Destroy(gameObject); // Détruit les instances en double
+        }
+    }
+
+
+
 
     void Start()
     {
         EventManager.Instance.OnAddedToPrompt += HandleAddedToPrompt;
         EventManager.Instance.OnRequestSended += HandleRequest;
         EventManager.Instance.OnRequestCompleted += HandleResponse;
+        EventManager.Instance.OnDictationStarted += HandleStopTypingMessage;
+        EventManager.Instance.OnRequestSended += HandleStopTypingMessage;
 
-        if (m_promptInitial != "")
+        ClearPrompt();
+        m_response = "";
+
+        if (m_enableInitialPrompt && m_promptInitial != "")
         {
-            HandleAddedToPrompt(m_promptTest);
+            HandleAddedToPrompt(m_promptInitial);
             HandleRequest();
         }
 
+        if (m_textFieldTMP == null)
+        {
+            LookForPNJSubtitles();
+        }
+    }
+
+
+
+    private void LookForPNJSubtitles()
+    {
+        // Trouver le PNJ dans la scène
+        GameObject pnj = GameObject.Find("PNJ");
+
+        if (pnj != null)
+        {
+            // Chercher le Canvas dans les enfants du PNJ
+            Transform canvasTransform = pnj.transform.Find("Canvas");
+
+            if (canvasTransform != null)
+            {
+                // Récupérer le TextMeshProUGUI dans le Canvas
+                m_textFieldTMP = canvasTransform.GetComponentInChildren<TextMeshProUGUI>();
+            }
+        }
 
         if (m_textFieldTMP == null)
         {
             Debug.Log("[ChatGPTUnity.cs] : N'a pas de 'textFieldTMP'");
-        }
-
-        m_answer = "";
-        ClearPrompt();
-
-        if (m_enableTestPrompt)
-        {
-            // Test de début de réponse pour ChatGPT
-            HandleAddedToPrompt(m_promptTest);
-            HandleRequest();
         }
     }
 
@@ -94,10 +141,10 @@ public class ChatGPTUnity : MonoBehaviour
 
     private void HandleResponse(string response)
     {
-        m_answer = response;
+        m_response = response;
         if (m_textFieldTMP != null)
         {
-            PrintOnTextBox(m_answer);
+            m_typingCoroutine = StartCoroutine(TypeMessage(m_response));
         }
         Debug.Log("ChatGPT : " + response);
     }
@@ -110,12 +157,31 @@ public class ChatGPTUnity : MonoBehaviour
         //m_textFieldInput.text = response;
     }
 
+    IEnumerator TypeMessage(string message)
+    {
+        m_textFieldTMP.text = "";
+        foreach (char letter in message)
+        {
+            m_textFieldTMP.text += letter;  // Ajoute chaque lettre à l'écran
+            yield return new WaitForSeconds(typingSpeed);  // Attends avant de montrer la prochaine lettre
+        }
+    }
+
+
+    private void HandleStopTypingMessage()
+    {
+        if (m_typingCoroutine != null)
+        {
+            StopCoroutine(m_typingCoroutine);
+        }
+    }
+
 
 
     IEnumerator SendRequestToChatGPT(string prompt)
     {
         // Construction manuelle du JSON pour être sûr du format
-        string json = "{\"model\": \"gpt-3.5-turbo\", \"messages\": [{\"role\": \"user\", \"content\": \"" + prompt + "\"}]}";
+        string json = "{\"model\": \"gpt-3.5-turbo\", \"messages\": [{\"role\": \"user\", \"content\": \"" + prompt + "\"}], \"max_tokens\": "+ m_maxToken +"}";
 
         UnityWebRequest request = new UnityWebRequest("https://api.openai.com/v1/chat/completions", "POST");
         byte[] bodyRaw = System.Text.Encoding.UTF8.GetBytes(json);
@@ -169,6 +235,8 @@ public class ChatGPTUnity : MonoBehaviour
         EventManager.Instance.OnAddedToPrompt -= HandleAddedToPrompt;
         EventManager.Instance.OnRequestSended -= HandleRequest;
         EventManager.Instance.OnRequestCompleted -= HandleResponse;
+        EventManager.Instance.OnDictationStarted -= HandleStopTypingMessage;
+        EventManager.Instance.OnRequestSended -= HandleStopTypingMessage;
     }
 }
 

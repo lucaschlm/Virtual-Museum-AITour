@@ -2295,6 +2295,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -7861114304055706474, guid: e8677bde30e06f341b0e897430988f1c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6209167704233865800, guid: e8677bde30e06f341b0e897430988f1c, type: 3}
       propertyPath: m_Name
       value: Arch_A (1)
@@ -3147,6 +3151,10 @@ PrefabInstance:
     - target: {fileID: 4538581657738125095, guid: a35ad63960bf6bd45acf2c48b7cae001, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4998207982682127909, guid: a35ad63960bf6bd45acf2c48b7cae001, type: 3}
+      propertyPath: m_Name
+      value: Subtitles (TMP)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6589,6 +6597,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3323160191053304596, guid: 5c049657eb842dc4dbed01ccccbc641a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7535667124042080076, guid: 5c049657eb842dc4dbed01ccccbc641a, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -6672,6 +6684,18 @@ PrefabInstance:
     - target: {fileID: 8061178164882883033, guid: 5c049657eb842dc4dbed01ccccbc641a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8390473093609192967, guid: 5c049657eb842dc4dbed01ccccbc641a, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8390473093609192967, guid: 5c049657eb842dc4dbed01ccccbc641a, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8390473093609192967, guid: 5c049657eb842dc4dbed01ccccbc641a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 52
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7485,9 +7509,35 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6828450946644198295, guid: a442d4ad2f76df14792e8442ab02c462, type: 3}
+      propertyPath: m_maxToken
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6828450946644198295, guid: a442d4ad2f76df14792e8442ab02c462, type: 3}
+      propertyPath: typingSpeed
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 6828450946644198295, guid: a442d4ad2f76df14792e8442ab02c462, type: 3}
+      propertyPath: m_promptTest
+      value: Where is Mona Lisa ?
+      objectReference: {fileID: 0}
+    - target: {fileID: 6828450946644198295, guid: a442d4ad2f76df14792e8442ab02c462, type: 3}
       propertyPath: m_textFieldTMP
       value: 
       objectReference: {fileID: 1058138403}
+    - target: {fileID: 6828450946644198295, guid: a442d4ad2f76df14792e8442ab02c462, type: 3}
+      propertyPath: m_promptInitial
+      value: 'You are a NPC guide in a virtual museum in a Unity game. Now say to
+        the player : Hello, visitor. I''m Sharon, your guide on this sneak peek into
+        mankind''s artistic legacy. Shall we begin the tour?'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6828450946644198295, guid: a442d4ad2f76df14792e8442ab02c462, type: 3}
+      propertyPath: m_enableTestPrompt
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6828450946644198295, guid: a442d4ad2f76df14792e8442ab02c462, type: 3}
+      propertyPath: m_enableInitialPrompt
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7251660862940854912, guid: a442d4ad2f76df14792e8442ab02c462, type: 3}
       propertyPath: m_Name
       value: ChatGPTUnity
@@ -7699,6 +7749,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3035403123993143037, guid: 5a25d438bb8c1204ea212d0024699c1f, type: 3}
   m_PrefabInstance: {fileID: 7487539000794826261}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7751867471371102786
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4603089458990821437, guid: 5c19c9853909b7840b8273ad8f8741de, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4603089458990821437, guid: 5c19c9853909b7840b8273ad8f8741de, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4603089458990821437, guid: 5c19c9853909b7840b8273ad8f8741de, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4603089458990821437, guid: 5c19c9853909b7840b8273ad8f8741de, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4603089458990821437, guid: 5c19c9853909b7840b8273ad8f8741de, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4603089458990821437, guid: 5c19c9853909b7840b8273ad8f8741de, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4603089458990821437, guid: 5c19c9853909b7840b8273ad8f8741de, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4603089458990821437, guid: 5c19c9853909b7840b8273ad8f8741de, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4603089458990821437, guid: 5c19c9853909b7840b8273ad8f8741de, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4603089458990821437, guid: 5c19c9853909b7840b8273ad8f8741de, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8800383634229733050, guid: 5c19c9853909b7840b8273ad8f8741de, type: 3}
+      propertyPath: m_Name
+      value: AI Voice
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5c19c9853909b7840b8273ad8f8741de, type: 3}
 --- !u!1001 &8007200848295010871
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7799,3 +7906,4 @@ SceneRoots:
   - {fileID: 1965212270893216850}
   - {fileID: 6355109358723473771}
   - {fileID: 3282080999492687352}
+  - {fileID: 7751867471371102786}

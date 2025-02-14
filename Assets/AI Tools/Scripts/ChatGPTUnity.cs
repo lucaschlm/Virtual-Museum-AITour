@@ -43,7 +43,7 @@ public class ChatGPTUnity : MonoBehaviour
 
         if (m_promptInitial != "")
         {
-            HandleAddedToPrompt(m_promptTest);
+            HandleAddedToPrompt(m_promptInitial);
             HandleRequest();
         }
 
@@ -58,7 +58,7 @@ public class ChatGPTUnity : MonoBehaviour
 
         if (m_enableTestPrompt)
         {
-            // Test de début de réponse pour ChatGPT
+            // Test de dï¿½but de rï¿½ponse pour ChatGPT
             HandleAddedToPrompt(m_promptTest);
             HandleRequest();
         }
@@ -66,7 +66,7 @@ public class ChatGPTUnity : MonoBehaviour
 
     void HandleAddedToPrompt(string prompt)
     {
-        //Debug.Log("Ajouté au prompt : " + prompt);
+        //Debug.Log("Ajoutï¿½ au prompt : " + prompt);
         if (!m_isListening)
         {
             ClearPrompt();
@@ -86,7 +86,7 @@ public class ChatGPTUnity : MonoBehaviour
 
     void HandleRequest()
     {
-        //Debug.Log("Prompt envoyé : " +  m_prompt);
+        //Debug.Log("Prompt envoyï¿½ : " +  m_prompt);
         StartCoroutine(SendRequestToChatGPT(m_prompt));
         m_isListening = false;
     }
@@ -114,7 +114,7 @@ public class ChatGPTUnity : MonoBehaviour
 
     IEnumerator SendRequestToChatGPT(string prompt)
     {
-        // Construction manuelle du JSON pour être sûr du format
+        // Construction manuelle du JSON pour ï¿½tre sï¿½r du format
         string json = "{\"model\": \"gpt-3.5-turbo\", \"messages\": [{\"role\": \"user\", \"content\": \"" + prompt + "\"}]}";
 
         UnityWebRequest request = new UnityWebRequest("https://api.openai.com/v1/chat/completions", "POST");
@@ -125,19 +125,19 @@ public class ChatGPTUnity : MonoBehaviour
         request.SetRequestHeader("Authorization", "Bearer " + m_apiKey);
 
         // Pour voir ce qu'on envoie
-        //Debug.Log("JSON envoyé : " + json);
+        //Debug.Log("JSON envoyï¿½ : " + json);
 
         yield return request.SendWebRequest();  // Sortie de la coroutine
 
         if (request.result == UnityWebRequest.Result.Success)
         {
-            //Debug.Log("Réponse complète : " + request.downloadHandler.text);
+            //Debug.Log("Rï¿½ponse complï¿½te : " + request.downloadHandler.text);
             EventManager.Instance.TriggerRequestCompleted(ExtractContent(request.downloadHandler.text));
         }
         else
         {
             Debug.LogError("Erreur : " + request.error);
-            Debug.LogError("Détails : " + request.downloadHandler.text);
+            Debug.LogError("Dï¿½tails : " + request.downloadHandler.text);
         }
     }
 
@@ -145,20 +145,20 @@ public class ChatGPTUnity : MonoBehaviour
 
     public static string ExtractContent(string jsonResponse)
     {
-        // Recherche l'index du début et de la fin du contenu
+        // Recherche l'index du dï¿½but et de la fin du contenu
         string startMarker = "\"content\": \"";
         string endMarker = "\"";
 
         int startIndex = jsonResponse.IndexOf(startMarker) + startMarker.Length;
         int endIndex = jsonResponse.IndexOf(endMarker, startIndex);
 
-        // Si les deux marqueurs sont trouvés, extraire le texte entre les deux
+        // Si les deux marqueurs sont trouvï¿½s, extraire le texte entre les deux
         if (startIndex >= 0 && endIndex >= 0)
         {
             return jsonResponse.Substring(startIndex, endIndex - startIndex);
         }
 
-        // Si les marqueurs ne sont pas trouvés, retourner une chaîne vide ou un message d'erreur
+        // Si les marqueurs ne sont pas trouvï¿½s, retourner une chaï¿½ne vide ou un message d'erreur
         return "Content not found!";
     }
 

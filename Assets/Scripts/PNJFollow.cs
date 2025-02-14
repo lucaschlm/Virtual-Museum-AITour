@@ -57,8 +57,6 @@ public class PNJFollow : MonoBehaviour
         m_Renaissance.Add("The Birth of Venus","Cible_Naissance");
         m_Renaissance.Add("Les Noces de Cana", "Cible_Noces");
         m_Renaissance.Add("The Wedding at Cana", "Cible_Noces"); 
-        m_Renaissance.Add("Sortie","Cible_Sortie");
-        m_Renaissance.Add("Suivant","Cible_Next");
     }
     
     private void initImpressionnisme(){

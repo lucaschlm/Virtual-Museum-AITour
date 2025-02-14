@@ -43,7 +43,7 @@ public class PNJFollow : MonoBehaviour
         Dico.Add("Sortie","Cible_Sortie");
         Dico.Add("Suivant","Cible_Next");
     }
-
+    
     private void Awake()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();

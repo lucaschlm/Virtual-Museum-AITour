@@ -7509,8 +7509,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6828450946644198295, guid: a442d4ad2f76df14792e8442ab02c462, type: 3}
+      propertyPath: m_context
+      value: You are Sharon, a virtual NPC guide in a Unity game. You are currently
+        in the first room of the museum. You will talk with the player and call him
+        by the name \"Visitor\". Your goal is to guide him in this museum by providing
+        clear and engaging explanations. Keep your responses concise and short (15-20
+        words).
+      objectReference: {fileID: 0}
+    - target: {fileID: 6828450946644198295, guid: a442d4ad2f76df14792e8442ab02c462, type: 3}
       propertyPath: m_maxToken
-      value: 50
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 6828450946644198295, guid: a442d4ad2f76df14792e8442ab02c462, type: 3}
       propertyPath: typingSpeed
@@ -7526,9 +7534,8 @@ PrefabInstance:
       objectReference: {fileID: 1058138403}
     - target: {fileID: 6828450946644198295, guid: a442d4ad2f76df14792e8442ab02c462, type: 3}
       propertyPath: m_promptInitial
-      value: 'You are a NPC guide in a virtual museum in a Unity game. Now say to
-        the player : Hello, visitor. I''m Sharon, your guide on this sneak peek into
-        mankind''s artistic legacy. Shall we begin the tour?'
+      value: 'Now say to the player: Hello, visitor. I''m Sharon, your guide on this
+        sneak peek into mankind''s artistic legacy. Shall we begin the tour?'
       objectReference: {fileID: 0}
     - target: {fileID: 6828450946644198295, guid: a442d4ad2f76df14792e8442ab02c462, type: 3}
       propertyPath: m_enableTestPrompt

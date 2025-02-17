@@ -92,7 +92,7 @@ namespace Meta.Voice.Samples.Dictation
 
             if (!_dictation.MicActive)
             {
-                Debug.Log("Vous : " + m_fullTranscription);
+                //Debug.Log("Vous : " + m_fullTranscription);
 
                 if (m_fullTranscription != " ")
                 {

@@ -31,7 +31,7 @@ public class EventManager : MonoBehaviour
     }
 
     
-    public void TriggerRequestCompleted(string message)   // Méthode pour déclencher l'événement OnRequestCompleted
+    public void TriggerRequestCompleted(string message)   // Mï¿½thode pour dï¿½clencher l'ï¿½vï¿½nement OnRequestCompleted
     {
         OnRequestCompleted?.Invoke(message);
     }

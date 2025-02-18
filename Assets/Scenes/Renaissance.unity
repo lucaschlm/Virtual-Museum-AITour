@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d530452f338a17c4fad394e90802372f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_message: 
+  m_currentScene: 
   m_PNJ: {fileID: 2044054250}
 --- !u!4 &22647712
 Transform:
@@ -7109,18 +7109,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6828450946644198295, guid: a442d4ad2f76df14792e8442ab02c462, type: 3}
       propertyPath: m_context
-      value: "Le joueur doit passer un quiz \xE0 la fin de la salle pour acc\xE9der
-        \xE0 la prochaine.Voici les questions  que tu dois poser une par une : \r\n1.
-        Quelle \u0153uvre de la Salle de la Renaissance pr\xE9sente la sc\xE8ne o\xF9
-        J\xE9sus partage son dernier repas avec ses ap\xF4tres ? \r\n2. Quel artiste
-        a sculpter Mo\xEFse ? \r\n3. Quelle sculpture de la Salle de la Renaissance
-        repr\xE9sente un personnage mythologique f\xE9minin, symbolisant la mer ?
-        \r\n4. Quelle sculpture de la Salle de la Renaissance montre un h\xE9ros
-        biblique qui affronte Goliath ? \r\n5. Dans quelle \u0153uvre de la Salle
-        de la Renaissance peut-on voir un sourire myst\xE9rieux et un regard qui
-        suit le spectateur ?\r\nSi le joueur \xE0 faux \xE0 une question, il doit
-        recommencer le quiz au d\xE9but.\r\nSi le joueur \xE0 toutes les bonnes r\xE9ponses,
-        ajoute \xE0 la fin de ton message Action: Quiz valide\r\n"
+      value: " Si le joueur veut passer au quiz, \xE9crit : Action: Quiz\r"
       objectReference: {fileID: 0}
     - target: {fileID: 6828450946644198295, guid: a442d4ad2f76df14792e8442ab02c462, type: 3}
       propertyPath: m_maxToken
@@ -7140,7 +7129,7 @@ PrefabInstance:
       objectReference: {fileID: 2032287571}
     - target: {fileID: 6828450946644198295, guid: a442d4ad2f76df14792e8442ab02c462, type: 3}
       propertyPath: m_promptInitial
-      value: "Commen\xE7ons le quiz"
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6828450946644198295, guid: a442d4ad2f76df14792e8442ab02c462, type: 3}
       propertyPath: m_enableTestPrompt

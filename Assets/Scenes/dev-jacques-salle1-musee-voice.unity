@@ -7514,7 +7514,7 @@ PrefabInstance:
         in the first room of the museum. You will talk with the player and call him
         by the name \"Visitor\". Your goal is to guide him in this museum by providing
         clear and engaging explanations. Keep your responses concise and short (15-20
-        words).
+        words). The player will speak in french but you will always answer in english.
       objectReference: {fileID: 0}
     - target: {fileID: 6828450946644198295, guid: a442d4ad2f76df14792e8442ab02c462, type: 3}
       propertyPath: m_maxToken
@@ -7523,6 +7523,10 @@ PrefabInstance:
     - target: {fileID: 6828450946644198295, guid: a442d4ad2f76df14792e8442ab02c462, type: 3}
       propertyPath: typingSpeed
       value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 6828450946644198295, guid: a442d4ad2f76df14792e8442ab02c462, type: 3}
+      propertyPath: m_maxHistory
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6828450946644198295, guid: a442d4ad2f76df14792e8442ab02c462, type: 3}
       propertyPath: m_promptTest

@@ -13,7 +13,7 @@ public class ChatGPTUnity : MonoBehaviour
     private int m_maxToken = 20;
 
     [SerializeField]
-    private int m_maxHistory = 5; // Nombre max de messages conservés dans l'historique
+    private int m_maxHistory = 2; // Nombre max de messages conservés dans l'historique
 
     [TextArea(3, 10)] // Min 3 lignes, max 10 lignes visibles dans l'Inspector
     [SerializeField]

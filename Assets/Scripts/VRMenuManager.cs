@@ -1,7 +1,8 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.XR.Interaction.Toolkit.Locomotion.Turning;
+using UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets;
 
 public class VRMenuManager : MonoBehaviour
 {
@@ -41,8 +42,17 @@ public class VRMenuManager : MonoBehaviour
 
     private void SetMovementEnabled(bool isEnabled)
     {
-        //TODO: A FAIRE
+        DynamicMoveProvider continuousMove = playerRig.GetComponentInChildren<DynamicMoveProvider>();
+        UnityEngine.XR.Interaction.Toolkit.Locomotion.Teleportation.TeleportationProvider teleportation = playerRig.GetComponentInChildren<UnityEngine.XR.Interaction.Toolkit.Locomotion.Teleportation.TeleportationProvider>();
+        ContinuousTurnProvider continuousTurn = playerRig.GetComponentInChildren<ContinuousTurnProvider>();
+        SnapTurnProvider snapTurn = playerRig.GetComponentInChildren<SnapTurnProvider>();
+
+        if (continuousMove != null) continuousMove.enabled = isEnabled;
+        if (teleportation != null) teleportation.enabled = isEnabled;
+        if (continuousTurn != null) continuousTurn.enabled = isEnabled;
+        if (snapTurn != null) snapTurn.enabled = isEnabled;
     }
+
 
     public void OnOtherButtonPressed()
     {

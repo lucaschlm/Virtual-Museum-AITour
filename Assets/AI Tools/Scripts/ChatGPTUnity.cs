@@ -13,11 +13,11 @@ public class ChatGPTUnity : MonoBehaviour
     private int m_maxToken = 20;
 
     [SerializeField]
-    private int m_maxHistory = 2; // Nombre max de messages conservés dans l'historique
+    private int m_maxHistory = 2; // Nombre max de messages conservï¿½s dans l'historique
 
     [TextArea(3, 10)] // Min 3 lignes, max 10 lignes visibles dans l'Inspector
     [SerializeField]
-    private string m_context = "You are Sharon, a virtual NPC guide in a Unity game. You are currently in the first room of the museum. You will talk with the player and call him by the name \"Visitor\". Your goal is to guide him in this museum by providing clear and engaging explanations. Keep your responses concise and short (15-20 words). The player will speak in french but you will always answer in english."; // Contexte à ajouter au début
+    private string m_context = "You are Sharon, a virtual NPC guide in a Unity game. You are currently in the first room of the museum. You will talk with the player and call him by the name \"Visitor\". Your goal is to guide him in this museum by providing clear and engaging explanations. Keep your responses concise and short (15-20 words). The player will speak in french but you will always answer in english."; // Contexte ï¿½ ajouter au dï¿½but
 
     [SerializeField]
     private bool m_enableContext = true;
@@ -43,7 +43,7 @@ public class ChatGPTUnity : MonoBehaviour
     private bool m_isListening = false;
 
     [SerializeField]
-    private float typingSpeed = 0.05f;  // Vitesse à laquelle les caractères apparaissent
+    private float typingSpeed = 0.05f;  // Vitesse Ã  laquelle les caractÃ¨res apparaissent
 
     private Coroutine m_typingCoroutine;
 
@@ -60,7 +60,7 @@ public class ChatGPTUnity : MonoBehaviour
         }
         else
         {
-            Destroy(gameObject); // Détruit les instances en double
+            Destroy(gameObject); // DÃ©truit les instances en double
         }
     }
 
@@ -76,8 +76,8 @@ public class ChatGPTUnity : MonoBehaviour
         ClearPrompt();
         m_response = "";
 
-        // Ne plus ajouter le contexte à l'historique ici
-        // car il sera ajouté automatiquement à chaque requête
+        // Ne plus ajouter le contexte ï¿½ l'historique ici
+        // car il sera ajoutï¿½ automatiquement ï¿½ chaque requï¿½te
 
         if (m_enableInitialPrompt && !string.IsNullOrEmpty(m_promptInitial))
         {
@@ -183,8 +183,13 @@ public class ChatGPTUnity : MonoBehaviour
 
     IEnumerator SendRequestToChatGPT(string prompt)
     {
+
         string json = BuildRequestJson();
-        //Debug.Log("JSON envoyé: " + json); // Pour le débogage
+        //Debug.Log("JSON envoyï¿½: " + json); // Pour le dï¿½bogage
+        
+//       version dev        
+//        // Construction manuelle du JSON pour Ãªtre sÃ»r du format
+//        string json = "{\"model\": \"gpt-3.5-turbo\", \"messages\": [{\"role\": \"user\", \"content\": \"" + prompt + "\"}], \"max_tokens\": "+ m_maxToken +"}";
 
         UnityWebRequest request = new UnityWebRequest("https://api.openai.com/v1/chat/completions", "POST");
         byte[] bodyRaw = System.Text.Encoding.UTF8.GetBytes(json);
@@ -192,6 +197,7 @@ public class ChatGPTUnity : MonoBehaviour
         request.downloadHandler = new DownloadHandlerBuffer();
         request.SetRequestHeader("Content-Type", "application/json");
         request.SetRequestHeader("Authorization", "Bearer " + m_apiKey);
+
 
         yield return request.SendWebRequest();
 
@@ -203,7 +209,7 @@ public class ChatGPTUnity : MonoBehaviour
         else
         {
             Debug.LogError("Erreur : " + request.error);
-            Debug.LogError("Détails : " + request.downloadHandler.text);
+            Debug.LogError("DÃ¯Â¿Â½tails : " + request.downloadHandler.text);
         }
     }
 
@@ -238,7 +244,7 @@ public class ChatGPTUnity : MonoBehaviour
             messages.Add(string.Format("{{\"role\":\"user\",\"content\":\"{0}\"}}", sanitizedPrompt));
         }
 
-        // Construire la requête JSON complète
+        // Construire la requï¿½te JSON complï¿½te
         string jsonBody = string.Format("{{\"model\":\"gpt-3.5-turbo\",\"messages\":[{0}],\"max_tokens\":{1}}}",
             string.Join(",", messages),
             m_maxToken);
@@ -262,10 +268,10 @@ public class ChatGPTUnity : MonoBehaviour
 
     private void AddMessageToHistory(string role, string content)
     {
-        // Ne pas ajouter le contexte à l'historique car il sera ajouté à chaque requête
+        // Ne pas ajouter le contexte ï¿½ l'historique car il sera ajoutï¿½ ï¿½ chaque requï¿½te
         if (role != "system")
         {
-            // Vérifier si le message n'est pas déjà dans l'historique pour éviter les doublons
+            // Vï¿½rifier si le message n'est pas dï¿½jï¿½ dans l'historique pour ï¿½viter les doublons
             if (!messageHistory.Exists(m => m["role"] == role && m["content"] == content))
             {
                 messageHistory.Add(new Dictionary<string, string> { { "role", role }, { "content", content } });
@@ -273,7 +279,7 @@ public class ChatGPTUnity : MonoBehaviour
                 // Limiter la taille de l'historique en excluant le contexte du compte
                 while (messageHistory.Count > m_maxHistory)
                 {
-                    // Supprimer le plus ancien message non-système
+                    // Supprimer le plus ancien message non-systï¿½me
                     messageHistory.RemoveAt(0);
                 }
             }
@@ -292,7 +298,6 @@ public class ChatGPTUnity : MonoBehaviour
         {
             return jsonResponse.Substring(startIndex, endIndex - startIndex);
         }
-
         return "Content not found!";
     }
 

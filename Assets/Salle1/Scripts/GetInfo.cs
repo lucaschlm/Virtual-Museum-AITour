@@ -42,7 +42,7 @@ class GetInfo : MonoBehaviour {
 
     private void makeAction(string action){
         Debug.Log("Action : " + action);
-        if(action == "Quiz validee"){
+        if(action == "Quiz valide"){
             m_gameManager.Valide(true);// appel à quiz Valide
         } else if (action == "Quiz"){
             m_gameManager.StartQuiz();

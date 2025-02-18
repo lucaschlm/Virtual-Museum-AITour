@@ -709,6 +709,10 @@ PrefabInstance:
       value: TptoNext
       objectReference: {fileID: 0}
     - target: {fileID: 4288482345701494666, guid: cb0baa981a1b63d4abd95ab274f7fce3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4288482345701494666, guid: cb0baa981a1b63d4abd95ab274f7fce3, type: 3}
       propertyPath: m_TagString
       value: TptoNext
       objectReference: {fileID: 0}
@@ -1514,6 +1518,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1085533842}
+    - target: {fileID: 7606894475812055144, guid: 610b779ee044e1d469f13f277cca000d, type: 3}
+      propertyPath: stoppingDistanceOeuvre
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8382338832344106972, guid: 610b779ee044e1d469f13f277cca000d, type: 3}
       propertyPath: m_Name
       value: PNJ2
@@ -7101,18 +7109,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6828450946644198295, guid: a442d4ad2f76df14792e8442ab02c462, type: 3}
       propertyPath: m_context
-      value: "Tu t\u2019appelles Sharon. Tu es un guide de mus\xE9e dans un jeu vid\xE9o
-        en 3D d'art sp\xE9cialis\xE9 en sculptures et peintures. Tes r\xE9ponses
-        doivent \xEAtre courtes. Le joueur parlera en fran\xE7ais, mais tu devrais
-        toujours r\xE9pondre en anglais. Ton objectif est de r\xE9pondre aux questions
-        et de guider ton interlocuteur. Le mus\xE9e comprend plusieurs salles (Renaissance,
-        impressionnisme et art Moderne). Tu te trouves dans la premi\xE8re. Voici
-        les oeuvres disponible dans la salle :  Cr\xE9ation d\u2019Adam, Joconde,
-        Amphitrite, L'Adoration des Mages.\nTu dois guider le visiteur d\u2019une
-        oeuvre \xE0 l\u2019autre en suivant l\u2019ordre donn\xE9 pr\xE9c\xE9demment. 
-        Demande d'abord si le visiteur veut commencer la visite. Si tu parles d\u2019une
-        oeuvre, ajoute \xE0 la fin de ton message Action: [nom de l\u2019oeuvre actuelle]\r\r\nVoici
-        l\u2019oeuvre devant laquelle tu te situe :  D\xE9but de la visite"
+      value: "Le joueur doit passer un quiz \xE0 la fin de la salle pour acc\xE9der
+        \xE0 la prochaine.Voici les questions  que tu dois poser une par une : \r\n1.
+        Quelle \u0153uvre de la Salle de la Renaissance pr\xE9sente la sc\xE8ne o\xF9
+        J\xE9sus partage son dernier repas avec ses ap\xF4tres ? \r\n2. Quel artiste
+        a sculpter Mo\xEFse ? \r\n3. Quelle sculpture de la Salle de la Renaissance
+        repr\xE9sente un personnage mythologique f\xE9minin, symbolisant la mer ?
+        \r\n4. Quelle sculpture de la Salle de la Renaissance montre un h\xE9ros
+        biblique qui affronte Goliath ? \r\n5. Dans quelle \u0153uvre de la Salle
+        de la Renaissance peut-on voir un sourire myst\xE9rieux et un regard qui
+        suit le spectateur ?\r\nSi le joueur \xE0 faux \xE0 une question, il doit
+        recommencer le quiz au d\xE9but.\r\nSi le joueur \xE0 toutes les bonnes r\xE9ponses,
+        ajoute \xE0 la fin de ton message Action: Quiz valide\r\n"
       objectReference: {fileID: 0}
     - target: {fileID: 6828450946644198295, guid: a442d4ad2f76df14792e8442ab02c462, type: 3}
       propertyPath: m_maxToken
@@ -7132,7 +7140,7 @@ PrefabInstance:
       objectReference: {fileID: 2032287571}
     - target: {fileID: 6828450946644198295, guid: a442d4ad2f76df14792e8442ab02c462, type: 3}
       propertyPath: m_promptInitial
-      value: Demande au joueur s'il veut commencer la visite
+      value: "Commen\xE7ons le quiz"
       objectReference: {fileID: 0}
     - target: {fileID: 6828450946644198295, guid: a442d4ad2f76df14792e8442ab02c462, type: 3}
       propertyPath: m_enableTestPrompt

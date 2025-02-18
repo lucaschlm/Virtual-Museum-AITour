@@ -31,7 +31,9 @@ class GetInfo : MonoBehaviour {
         string[] parties = message.Split(separateur,System.StringSplitOptions.None);
         if(parties.Length > 1){
             string action = parties[1].Trim();
-            makeAction(action);
+            string[] actions = action.Split(".",System.StringSplitOptions.None); 
+            // Enlève un potentiel . à la fin de l'oeuvre
+            makeAction(actions[0]);
         } else {
             Debug.Log("Uniquement un message ");
         }
@@ -40,8 +42,12 @@ class GetInfo : MonoBehaviour {
 
     private void makeAction(string action){
         Debug.Log("Action : " + action);
-        if(action == "Quiz validee"){
+        if(action == "Quiz valide"){
             m_gameManager.Valide(true);// appel à quiz Valide
+        } else if (action == "Quiz"){
+            m_gameManager.StartQuiz();
+        } else if (action == "Visite"){
+            m_gameManager.StartVisit();
         } else {
             m_pnj.Choose(action,m_currentScene);
         }

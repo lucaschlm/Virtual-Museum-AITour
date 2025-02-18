@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_message: 
-  m_PNJ: {fileID: 1562996860}
+  m_PNJ: {fileID: 2044054250}
 --- !u!4 &22647712
 Transform:
   m_ObjectHideFlags: 0
@@ -707,6 +707,10 @@ PrefabInstance:
     - target: {fileID: 4288482345701494666, guid: cb0baa981a1b63d4abd95ab274f7fce3, type: 3}
       propertyPath: m_Name
       value: TptoNext
+      objectReference: {fileID: 0}
+    - target: {fileID: 4288482345701494666, guid: cb0baa981a1b63d4abd95ab274f7fce3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4288482345701494666, guid: cb0baa981a1b63d4abd95ab274f7fce3, type: 3}
       propertyPath: m_TagString
@@ -1514,6 +1518,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1085533842}
+    - target: {fileID: 7606894475812055144, guid: 610b779ee044e1d469f13f277cca000d, type: 3}
+      propertyPath: stoppingDistanceOeuvre
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8382338832344106972, guid: 610b779ee044e1d469f13f277cca000d, type: 3}
       propertyPath: m_Name
       value: PNJ2
@@ -7100,8 +7108,23 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6828450946644198295, guid: a442d4ad2f76df14792e8442ab02c462, type: 3}
+      propertyPath: m_context
+      value: "Le joueur doit passer un quiz \xE0 la fin de la salle pour acc\xE9der
+        \xE0 la prochaine.Voici les questions  que tu dois poser une par une : \r\n1.
+        Quelle \u0153uvre de la Salle de la Renaissance pr\xE9sente la sc\xE8ne o\xF9
+        J\xE9sus partage son dernier repas avec ses ap\xF4tres ? \r\n2. Quel artiste
+        a sculpter Mo\xEFse ? \r\n3. Quelle sculpture de la Salle de la Renaissance
+        repr\xE9sente un personnage mythologique f\xE9minin, symbolisant la mer ?
+        \r\n4. Quelle sculpture de la Salle de la Renaissance montre un h\xE9ros
+        biblique qui affronte Goliath ? \r\n5. Dans quelle \u0153uvre de la Salle
+        de la Renaissance peut-on voir un sourire myst\xE9rieux et un regard qui
+        suit le spectateur ?\r\nSi le joueur \xE0 faux \xE0 une question, il doit
+        recommencer le quiz au d\xE9but.\r\nSi le joueur \xE0 toutes les bonnes r\xE9ponses,
+        ajoute \xE0 la fin de ton message Action: Quiz valide\r\n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6828450946644198295, guid: a442d4ad2f76df14792e8442ab02c462, type: 3}
       propertyPath: m_maxToken
-      value: 50
+      value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 6828450946644198295, guid: a442d4ad2f76df14792e8442ab02c462, type: 3}
       propertyPath: typingSpeed
@@ -7117,8 +7140,7 @@ PrefabInstance:
       objectReference: {fileID: 2032287571}
     - target: {fileID: 6828450946644198295, guid: a442d4ad2f76df14792e8442ab02c462, type: 3}
       propertyPath: m_promptInitial
-      value: You are a NPC guide in a virtual museum in a Unity game. Your name is
-        Sharon.  You are in a Renaissance Room.
+      value: "Commen\xE7ons le quiz"
       objectReference: {fileID: 0}
     - target: {fileID: 6828450946644198295, guid: a442d4ad2f76df14792e8442ab02c462, type: 3}
       propertyPath: m_enableTestPrompt
@@ -7152,6 +7174,11 @@ MonoBehaviour:
 Transform:
   m_CorrespondingSourceObject: {fileID: 7950583705289226102, guid: 4b13e8a597d84e743b44320e0eb67c7f, type: 3}
   m_PrefabInstance: {fileID: 1009646014}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2044054250 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8382338832344106972, guid: 610b779ee044e1d469f13f277cca000d, type: 3}
+  m_PrefabInstance: {fileID: 526720362}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2054504297
 PrefabInstance:

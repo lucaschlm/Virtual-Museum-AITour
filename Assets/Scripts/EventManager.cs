@@ -5,9 +5,12 @@ using System.Collections;
 public class EventManager : MonoBehaviour
 {
 
-    public delegate void MyDelegateFonction(string message);
+    public delegate void MyDelegateFonctionTakesStringReturnVoid(string message);
+    public delegate string MyDelegateFonctionTakesVoidReturnString();
 
-    public event MyDelegateFonction OnAddedToPrompt;
+    public event MyDelegateFonctionTakesStringReturnVoid OnContextSet;
+    public event MyDelegateFonctionTakesVoidReturnString OnContextGet;
+    public event MyDelegateFonctionTakesStringReturnVoid OnAddedToPrompt;
     public event Action OnRequestSended;
     public event Action<string> OnRequestCompleted;
     public event Action OnDictationStarted;
@@ -55,5 +58,13 @@ public class EventManager : MonoBehaviour
         OnDictationEnded?.Invoke();
     }
 
+    public void TriggerContextSet(string context)
+    {
+        OnContextSet?.Invoke(context);
+    }
 
+    public string TriggerContextGet()
+    {
+        return OnContextGet?.Invoke();
+    }
 }

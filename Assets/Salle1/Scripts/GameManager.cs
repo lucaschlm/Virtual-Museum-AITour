@@ -35,6 +35,15 @@ public class GameManager : MonoBehaviour {
         return Current.getValide();
     }
 
+    public void StartQuiz(){
+        Debug.Log("Début du Quiz");
+        // Envoyer le context du début du quiz avec les questions 
+    }
+
+    public void StartVisit(){
+        Debug.Log("Début Visite");
+    }
+
     // Valide la scène et affiche le Tp
     public void Valide(bool v){
         Current.Validee = v;

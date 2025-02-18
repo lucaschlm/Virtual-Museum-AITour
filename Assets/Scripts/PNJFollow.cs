@@ -35,14 +35,17 @@ public class PNJFollow : MonoBehaviour
         m_Renaissance.Add("Hannibal", "Cible_Annibal");
         m_Renaissance.Add("Bust of Hannibal","Cible_Annibal");
         m_Renaissance.Add("La Création d'Adam", "Cible_Creation");
+        m_Renaissance.Add("Création d'Adam", "Cible_Creation");
         m_Renaissance.Add("La Création dAdam", "Cible_Creation");
         m_Renaissance.Add("The Creation of Adam", "Cible_Creation");
+        m_Renaissance.Add("Creation of Adam", "Cible_Creation");
         m_Renaissance.Add("La Cène", "Cible_Cene");
         m_Renaissance.Add("The Last Supper", "Cible_Cene");
         m_Renaissance.Add("David", "Cible_David");
         m_Renaissance.Add("Le Jardin des Délices", "Cible_Jardin");
         m_Renaissance.Add("The Garden of Earthly Delights", "Cible_Jardin");
         m_Renaissance.Add("La Joconde", "Cible_Joconde");
+        m_Renaissance.Add("Joconde", "Cible_Joconde");
         m_Renaissance.Add("The Mona Lisa", "Cible_Joconde");
         m_Renaissance.Add("Mona Lisa", "Cible_Joconde");
         m_Renaissance.Add("L'Enfant à l'Oie", "Cible_Enfant");
@@ -121,7 +124,7 @@ public class PNJFollow : MonoBehaviour
     // Renvoie une oeuvre si trouvé null sinon
     private GameObject FindOeuvre(string nom_oeuvre, string scene){
         GameObject oeuvre = null;
-        if(scene == "Renaissance" || scene == "TEST_iA"){
+        if(scene == "Renaissance"){
             Debug.Log("Salle de la Renaissance");
             Debug.Log(nom_oeuvre);
             if(m_Renaissance.ContainsKey(nom_oeuvre)){
@@ -142,7 +145,7 @@ public class PNJFollow : MonoBehaviour
             if (oeuvre != null){
                 Oeuvre = oeuvre.transform;
                 float dist = Vector3.Distance(transform.position, Oeuvre.position);
-                if(dist > 4f){
+                if(dist > 2f){
                     // Guide uniquement si le PNJ est à plus de 5m de l'oeuvre  
                     IsGuiding = true;
                 }

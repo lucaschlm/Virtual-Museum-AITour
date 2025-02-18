@@ -71,6 +71,8 @@ public class ChatGPTUnity : MonoBehaviour
         EventManager.Instance.OnRequestCompleted += HandleResponse;
         EventManager.Instance.OnDictationStarted += HandleStopTypingMessage;
         EventManager.Instance.OnRequestSended += HandleStopTypingMessage;
+        EventManager.Instance.OnContextSet += SetContext;
+        EventManager.Instance.OnContextGet += GetContext;
 
         messageHistory.Clear();
         ClearPrompt();
@@ -95,6 +97,18 @@ public class ChatGPTUnity : MonoBehaviour
             LookForPNJSubtitles();
         }
     }
+
+
+    private void SetContext(string context)
+    {
+        m_context = context;
+    }
+
+    private string GetContext()
+    {
+        return m_context;
+    }
+
 
     private void LookForPNJSubtitles()
     {

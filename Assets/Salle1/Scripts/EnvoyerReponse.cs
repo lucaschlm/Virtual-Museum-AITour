@@ -110,4 +110,46 @@ class EnvoyerReponse : MonoBehaviour {
         EventManager.Instance.TriggerOnAddedToPrompt(prompt);
         EventManager.Instance.TriggerRequestSended(); 
     }
+
+    /*----------------------------*/
+    /*      IMPRESSIONNISME       */
+    /*----------------------------*/
+
+    // Question 1 : Qui a peint Impression, soleil Levant
+    public void AQ1Imp(){ //Toulouse Lautrec
+        string prompt = "Toulouse Lautrec";
+        EventManager.Instance.TriggerOnAddedToPrompt(prompt);
+        EventManager.Instance.TriggerRequestSended(); 
+    }
+
+    public void BQ1Imp(){ // Claude Monet
+        string prompt = "C'est Claude Monet qui a peint Impression, soleil Levant";
+        EventManager.Instance.TriggerOnAddedToPrompt(prompt);
+        EventManager.Instance.TriggerRequestSended(); 
+    }
+
+    public void CQ1Imp(){ // P-A Renoir
+        string prompt = "Renoir";
+        EventManager.Instance.TriggerOnAddedToPrompt(prompt);
+        EventManager.Instance.TriggerRequestSended(); 
+    }
+
+    // Question 2 : Quelle est l'atmosphère de l'Absynthe
+    public void AQ2Imp(){ //Triste 
+        string prompt = "l'atmosphère est vraiment triste";
+        EventManager.Instance.TriggerOnAddedToPrompt(prompt);
+        EventManager.Instance.TriggerRequestSended(); 
+    }
+
+    public void BQ2Imp(){ // Joyeuse 
+        string prompt = "Joyeuse";
+        EventManager.Instance.TriggerOnAddedToPrompt(prompt);
+        EventManager.Instance.TriggerRequestSended(); 
+    }
+
+    public void CQ2Imp(){ // neutre 
+        string prompt = "L'atmosphère est normal (Mauvaise réponse)";
+        EventManager.Instance.TriggerOnAddedToPrompt(prompt);
+        EventManager.Instance.TriggerRequestSended(); 
+    }
 }

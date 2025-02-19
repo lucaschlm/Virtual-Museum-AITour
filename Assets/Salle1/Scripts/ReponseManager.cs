@@ -27,6 +27,11 @@ class ReponseManager : MonoBehaviour {
 
     public void DesactiveImp(){
         Debug.Log("Désactive Réponses Impressionnisme");
+        transform.Find("Q1Imp")?.gameObject.SetActive(false);
+        transform.Find("Q2Imp")?.gameObject.SetActive(false);
+        transform.Find("Q3Imp")?.gameObject.SetActive(false);
+        transform.Find("Q4Imp")?.gameObject.SetActive(false);
+        transform.Find("Q5Imp")?.gameObject.SetActive(false);
     }
 
     public void ActiveQ1Ren(){
@@ -61,22 +66,32 @@ class ReponseManager : MonoBehaviour {
 
     public void ActiveQ1Imp(){
         Debug.Log("Activation Réponse Q1 Impressionnisme");
+        DesactiveImp();
+        transform.Find("Q1Imp")?.gameObject.SetActive(true);
     }
 
     public void ActiveQ2Imp(){
         Debug.Log("Activation Réponse Q2 Impressionnisme");
+        DesactiveImp();
+        transform.Find("Q2Imp")?.gameObject.SetActive(true);
     }
 
     public void ActiveQ3Imp(){
         Debug.Log("Activation Réponse Q3 Impressionnisme");
+        DesactiveImp();
+        transform.Find("Q3Imp")?.gameObject.SetActive(true);
     }
 
     public void ActiveQ4Imp(){
         Debug.Log("Activation Réponse Q4 Impressionnisme");
+        DesactiveImp();
+        transform.Find("Q4Imp")?.gameObject.SetActive(true);
     }
 
     public void ActiveQ5Imp(){
         Debug.Log("Activation Réponse Q5 Impressionnisme");
+        DesactiveImp();
+        transform.Find("Q5Imp")?.gameObject.SetActive(true);
     }
 
 }

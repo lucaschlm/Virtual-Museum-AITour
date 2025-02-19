@@ -1653,7 +1653,7 @@ GameObject:
   - component: {fileID: 8523454715111964837}
   - component: {fileID: 950894825110075586}
   m_Layer: 0
-  m_Name: ReponseQuiz 1
+  m_Name: ReponseQuiz
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

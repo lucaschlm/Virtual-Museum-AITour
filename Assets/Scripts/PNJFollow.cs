@@ -15,7 +15,7 @@ public class PNJFollow : MonoBehaviour
     [Tooltip("Distance minimale avant que le PNJ s'arrête.")]
     [SerializeField] private float stoppingDistance = 2.0f;
     [Tooltip("Distance minimale avant que le PNJ s'arrête devant l'oeuvre.")]
-    [SerializeField] private float stoppingDistanceOeuvre = 2.0f;
+    [SerializeField] private float stoppingDistanceOeuvre = 0.5f;
 
     private NavMeshAgent navMeshAgent;
     private Animator animator;
@@ -145,7 +145,7 @@ public class PNJFollow : MonoBehaviour
             if (oeuvre != null){
                 Oeuvre = oeuvre.transform;
                 float dist = Vector3.Distance(transform.position, Oeuvre.position);
-                if(dist > 2f){
+                if(dist > 0.5f){
                     // Guide uniquement si le PNJ est à plus de 5m de l'oeuvre  
                     IsGuiding = true;
                 }
@@ -177,7 +177,10 @@ public class PNJFollow : MonoBehaviour
             float distanceToOeuvre = Vector3.Distance(transform.position, Oeuvre.position);
             if (distanceToOeuvre > stoppingDistanceOeuvre)
             {
-                if(distanceToPlayer < System.Math.Max(0.3*distanceToOeuvre,2)){
+                // navMeshAgent.SetDestination(Oeuvre.position);
+                // animator.SetBool("IsWalking", true);
+                // System.Math.Max(0.3*distanceToOeuvre,2)
+                if(distanceToPlayer < 3){
                     navMeshAgent.SetDestination(Oeuvre.position);
                     animator.SetBool("IsWalking", true);
                 } else {

@@ -16,7 +16,13 @@ class ReponseManager : MonoBehaviour {
     }
 
     public void DesactiveRen(){
+        // Désactive les réponses de toutes les questions de la renaissance
         Debug.Log("Désactive Réponses Renaissance");
+        transform.Find("Q1Ren")?.gameObject.SetActive(false);
+        transform.Find("Q2Ren")?.gameObject.SetActive(false);
+        transform.Find("Q3Ren")?.gameObject.SetActive(false);
+        transform.Find("Q4Ren")?.gameObject.SetActive(false);
+        transform.Find("Q5Ren")?.gameObject.SetActive(false);
     }
 
     public void DesactiveImp(){
@@ -25,22 +31,32 @@ class ReponseManager : MonoBehaviour {
 
     public void ActiveQ1Ren(){
         Debug.Log("Activation Réponse Q1 Renaissance");
+        DesactiveRen();
+        transform.Find("Q1Ren")?.gameObject.SetActive(true);
     }
 
     public void ActiveQ2Ren(){
         Debug.Log("Activation Réponse Q2 Renaissance");
+        DesactiveRen();
+        transform.Find("Q2Ren")?.gameObject.SetActive(true);
     }
 
     public void ActiveQ3Ren(){
         Debug.Log("Activation Réponse Q3 Renaissance");
+        DesactiveRen();
+        transform.Find("Q3Ren")?.gameObject.SetActive(true);
     }
 
     public void ActiveQ4Ren(){
         Debug.Log("Activation Réponse Q4 Renaissance");
+        DesactiveRen();
+        transform.Find("Q4Ren")?.gameObject.SetActive(true);
     }
 
     public void ActiveQ5Ren(){
         Debug.Log("Activation Réponse Q5 Renaissance");
+        DesactiveRen();
+        transform.Find("Q5Ren")?.gameObject.SetActive(true);
     }
 
     public void ActiveQ1Imp(){

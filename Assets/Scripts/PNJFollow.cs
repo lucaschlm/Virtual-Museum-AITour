@@ -180,7 +180,7 @@ public class PNJFollow : MonoBehaviour
                 // navMeshAgent.SetDestination(Oeuvre.position);
                 // animator.SetBool("IsWalking", true);
                 // System.Math.Max(0.3*distanceToOeuvre,2)
-                if(distanceToPlayer < 3){
+                if(distanceToPlayer < 5){
                     navMeshAgent.SetDestination(Oeuvre.position);
                     animator.SetBool("IsWalking", true);
                 } else {

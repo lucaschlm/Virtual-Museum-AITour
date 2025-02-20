@@ -4,6 +4,40 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 
+
+
+[System.Serializable]
+public class ChatGPTResponse
+{
+    public Choice[] choices;
+}
+
+[System.Serializable]
+public class Choice
+{
+    public Message message;
+    public string finish_reason;
+    public int index;
+}
+
+[System.Serializable]
+public class Message
+{
+    public string role;
+    public string content;
+}
+
+
+[System.Serializable]
+public class ChatGPTRequest
+{
+    public string model;
+    public Message[] messages;
+    public int max_tokens;
+}
+
+
+
 public class ChatGPTUnity : MonoBehaviour
 {
     [SerializeField]
@@ -225,47 +259,56 @@ public class ChatGPTUnity : MonoBehaviour
         else
         {
             Debug.LogError("Erreur : " + request.error);
-            Debug.LogError("Dï¿½tails : " + request.downloadHandler.text);
+            Debug.LogError("Détails : " + request.downloadHandler.text);
         }
     }
 
     private string BuildRequestJson()
     {
-        var messages = new List<string>();
+        var messagesList = new List<Message>();
 
-        // Toujours ajouter le contexte en premier
+        // Add context if available
         if (!string.IsNullOrEmpty(m_context))
         {
-            string sanitizedContext = SanitizeString(m_context);
-            messages.Add(string.Format("{{\"role\":\"system\",\"content\":\"{0}\"}}", sanitizedContext));
+            messagesList.Add(new Message
+            {
+                role = "system",
+                content = m_context
+            });
         }
 
-        // Ajouter les messages de l'historique (en excluant l'ancien contexte s'il existe)
+        // Add message history
         foreach (var message in messageHistory)
         {
-            if (message["role"] != "system") // Ne pas dupliquer le contexte
+            if (message["role"] != "system")
             {
-                string sanitizedContent = SanitizeString(message["content"]);
-                string jsonMessage = string.Format("{{\"role\":\"{0}\",\"content\":\"{1}\"}}",
-                    message["role"],
-                    sanitizedContent);
-                messages.Add(jsonMessage);
+                messagesList.Add(new Message
+                {
+                    role = message["role"],
+                    content = message["content"]
+                });
             }
         }
 
-        // Ajouter le message actuel si non vide
+        // Add current prompt if available
         if (!string.IsNullOrEmpty(m_prompt))
         {
-            string sanitizedPrompt = SanitizeString(m_prompt);
-            messages.Add(string.Format("{{\"role\":\"user\",\"content\":\"{0}\"}}", sanitizedPrompt));
+            messagesList.Add(new Message
+            {
+                role = "user",
+                content = m_prompt
+            });
         }
 
-        // Construire la requ�te JSON compl�te
-        string jsonBody = string.Format("{{\"model\":\"gpt-3.5-turbo\",\"messages\":[{0}],\"max_tokens\":{1}}}",
-            string.Join(",", messages),
-            m_maxToken);
+        // Create the request object
+        var request = new ChatGPTRequest
+        {
+            model = "gpt-3.5-turbo",
+            messages = messagesList.ToArray(),
+            max_tokens = m_maxToken
+        };
 
-        return jsonBody;
+        return JsonUtility.ToJson(request);
     }
 
     private string SanitizeString(string input)
@@ -304,17 +347,21 @@ public class ChatGPTUnity : MonoBehaviour
 
     public static string ExtractContent(string jsonResponse)
     {
-        string startMarker = "\"content\": \"";
-        string endMarker = "\"";
-
-        int startIndex = jsonResponse.IndexOf(startMarker) + startMarker.Length;
-        int endIndex = jsonResponse.IndexOf(endMarker, startIndex);
-
-        if (startIndex >= 0 && endIndex >= 0)
+        try
         {
-            return jsonResponse.Substring(startIndex, endIndex - startIndex);
+            ChatGPTResponse response = JsonUtility.FromJson<ChatGPTResponse>(jsonResponse);
+            if (response != null && response.choices != null && response.choices.Length > 0)
+            {
+                return response.choices[0].message.content;
+            }
+            Debug.LogError("Failed to parse ChatGPT response: Invalid response structure");
+            return "Error: Invalid response structure";
         }
-        return "Content not found!";
+        catch (System.Exception e)
+        {
+            Debug.LogError($"Failed to parse ChatGPT response: {e.Message}\nResponse: {jsonResponse}");
+            return "Error: Failed to parse response";
+        }
     }
 
     private void OnDestroy()

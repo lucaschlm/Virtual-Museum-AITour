@@ -119,6 +119,7 @@ public class PNJFollow : MonoBehaviour
         initRenaissance();
         initImpressionnisme();
         IsGuiding = false;
+        player = Camera.main.transform;
     }
 
     // Renvoie une oeuvre si trouvé null sinon

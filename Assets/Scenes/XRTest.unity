@@ -291,7 +291,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6598815579406187037, guid: 18ddb545287c546e19cc77dc9fbb2189, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1745,6 +1745,11 @@ MonoBehaviour:
     - {x: 0.57735026, y: 0.57735026, z: -0.57735026}
     - {x: 0.57735026, y: 0.57735026, z: 0.57735026}
     - {x: 0.57735026, y: -0.57735026, z: 0.57735026}
+--- !u!4 &1750949707 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4247658373188555168, guid: 1ad18fef7286a4443adf0edcd977db1c, type: 3}
+  m_PrefabInstance: {fileID: 393476232}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &360371088314925668
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2238,6 +2243,10 @@ PrefabInstance:
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 825301871}
+    - target: {fileID: 6654604737440257709, guid: f01e56083b8e3414daa0401e56dbf011, type: 3}
+      propertyPath: headCamera
+      value: 
+      objectReference: {fileID: 1750949707}
     - target: {fileID: 6654604737440257709, guid: f01e56083b8e3414daa0401e56dbf011, type: 3}
       propertyPath: cameraOffset
       value: 

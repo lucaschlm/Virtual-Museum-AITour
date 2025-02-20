@@ -13,6 +13,7 @@ public class GameplaySettingsManager : MonoBehaviour
     public Slider heightSlider;
     public TMP_Text heightValueText;
     public Transform cameraOffset;
+    public Transform headCamera;
 
     private bool isSittingMode = false;
 
@@ -60,9 +61,12 @@ public class GameplaySettingsManager : MonoBehaviour
 
     private void ApplyHeight()
     {
-        if (cameraOffset != null)
+        if (cameraOffset != null && headCamera != null)
         {
-            cameraOffset.localPosition = new Vector3(cameraOffset.localPosition.x, heightSlider.value, cameraOffset.localPosition.z);
+            float headsetHeight = headCamera.localPosition.y;
+            float targetHeight = heightSlider.value - headsetHeight;
+
+            cameraOffset.localPosition = new Vector3(cameraOffset.localPosition.x, targetHeight, cameraOffset.localPosition.z);
         }
     }
 

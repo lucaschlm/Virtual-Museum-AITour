@@ -363,10 +363,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 864512951047831268, guid: 610b779ee044e1d469f13f277cca000d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.066
+      objectReference: {fileID: 0}
+    - target: {fileID: 864512951047831268, guid: 610b779ee044e1d469f13f277cca000d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 1.226
+      objectReference: {fileID: 0}
     - target: {fileID: 7606894475812055144, guid: 610b779ee044e1d469f13f277cca000d, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 1626889529}
+    - target: {fileID: 7606894475812055144, guid: 610b779ee044e1d469f13f277cca000d, type: 3}
+      propertyPath: stoppingDistance
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7606894475812055144, guid: 610b779ee044e1d469f13f277cca000d, type: 3}
+      propertyPath: stoppingDistanceOeuvre
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8382338832344106972, guid: 610b779ee044e1d469f13f277cca000d, type: 3}
       propertyPath: m_Name
       value: PNJ2

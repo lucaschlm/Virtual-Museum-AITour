@@ -162,7 +162,8 @@ public class ChatGPTUnity : MonoBehaviour
         if (!string.IsNullOrEmpty(response))
         {
             AddMessageToHistory("assistant", response);
-            m_response = response;
+            string[] message = response.Split("Action:",System.StringSplitOptions.None);
+            m_response = message[0];
             if (m_textFieldTMP != null)
             {
                 m_typingCoroutine = StartCoroutine(TypeMessage(m_response));
@@ -218,6 +219,7 @@ public class ChatGPTUnity : MonoBehaviour
         if (request.result == UnityWebRequest.Result.Success)
         {
             string response = ExtractContent(request.downloadHandler.text);
+            Debug.Log("Réponse complète : " + request.downloadHandler.text);
             EventManager.Instance.TriggerRequestCompleted(response);
         }
         else

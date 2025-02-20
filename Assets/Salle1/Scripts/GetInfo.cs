@@ -113,6 +113,7 @@ class GetInfo : MonoBehaviour {
     }
 
     private void HandleResponse(string reponse){
+        Debug.Log("Réponse :" + reponse);
         string message = exportInfo(reponse);
         Debug.Log("Message de réponse :" + message);
     }    
@@ -145,18 +146,20 @@ class GetInfo : MonoBehaviour {
     }
 
     private void LancementImpressionnisme(){
-        string newcontext = "Tu t’appelles Sharon. Tu es un guide de musée dans un jeu vidéo en 3D d'art spécialisé en sculptures et peintures. Tes réponses doivent être courtes. Le joueur parlera en français, mais tu devrais toujours répondre en anglais. Ton objectif est de répondre aux questions et de guider ton interlocuteur. Le musée comprend plusieurs salles (Renaissance, impressionnisme et art Moderne). Tu te trouves dans la salle de l’impressionnisme. Voici les oeuvres disponible dans la salle :   Les Coquelicots, Danse à la Campagne, La Neige à Louveciennes, Les Parapluies, Femmes au Jardin, Impression soleil levant, La Seine à Bougival, La Classe de Danse, Le Berceau, Boulevard Montmartre effet de nuit, Le Déjeuner des Canotiers, Le Pont de l’Europe, Vue du petit port de Lorient, La Gare Saint-Lazare et L’Absinthe.Tu dois guider le visiteur d’une oeuvre à l’autre en suivant l’ordre donné précédemment. Si tu parles d’une oeuvre, ajoute à la fin de ton message Action: [nom de l’oeuvre actuelle]. Si le joueur veut passer au quiz ou à la fin de la visite, ajoute à la fin de ton message Action: Quiz";
-        string newprompt = "Accueil le joueur (présente la salle de l'impressionnisme) et commence la visite";
+        // Femmes au Jardin, Impression soleil levant, La Seine à Bougival, La Classe de Danse, Le Berceau, Boulevard Montmartre effet de nuit, Le Déjeuner des Canotiers, Le Pont de l’Europe, Vue du petit port de Lorient, La Gare Saint-Lazare et L’Absinthe
+        string newcontext = "Tu t’appelles Sharon. Tu es un guide de musée dans un jeu vidéo en 3D d'art spécialisé en sculptures et peintures. Tes réponses doivent être courtes. Le joueur parlera en français, mais tu devrais toujours répondre en anglais. Ton objectif est de répondre aux questions et de guider ton interlocuteur. Le musée comprend plusieurs salles (Renaissance, impressionnisme et art Moderne). Tu te trouves dans la salle de l’impressionnisme. Voici les oeuvres disponible dans la salle : Les Coquelicots, Danse à la Campagne, La Neige à Louveciennes, Les Parapluies.Tu dois guider le visiteur d’une oeuvre à l’autre en suivant l’ordre donné précédemment. Si tu parles d’une oeuvre, ajoute à la fin de ton message Action: [nom de l’oeuvre actuelle]. Si le joueur veut passer au quiz, ajoute à la fin de ton message Action: Quiz";
+        string newprompt = "Parle moi de l'oeuvre Les Coquelicots";
         EventManager.Instance.TriggerContextSet(newcontext);
         EventManager.Instance.TriggerOnAddedToPrompt(newprompt);
         EventManager.Instance.TriggerRequestSended();
     }
 
     private void LancementImpressionismeQuiz(){
-        string newcontext = "Tu t’appelles Sharon. Tu es un guide de musée dans un jeu vidéo en 3D d'art spécialisé en sculptures et peintures. Tes réponses doivent être courtes. Le joueur doit passer un quiz à la fin de la salle pour accéder à la prochaine. Le joueur parlera en français, mais tu devrais toujours répondre en anglais sans sauter de ligne. Voici les questions  que tu dois poser une par une : 1. Which artist painted Impression, Sunrise? 2. What atmosphere is Edgar Degas trying to convey in L'Absinthe? 3. In which country were most of the impressionist works we mentioned painted? 4. Which musical instrument can be seen in Degas's The Dance Class? 5. Which painter created L'Absinthe? Si le joueur à faux à une question, il doit recommencer le quiz au début. Si le joueur à toutes les bonnes réponses, ajoute à la fin de ton message Action: Valid Quiz";
+        string newcontext = "Tu t’appelles Sharon. Tu es un guide de musée dans un jeu vidéo en 3D d'art spécialisé en sculptures et peintures. Tes réponses doivent être courtes. Le joueur doit passer un quiz à la fin de la salle pour accéder à la prochaine. Le joueur parlera en français, mais tu devrais toujours répondre en anglais sans sauter de ligne. Voici les questions  que tu dois poser une par une : 1. Which artist painted Impression, Sunrise? 2. What atmosphere is Edgar Degas trying to convey in L'Absinthe? 3. In which country were most of the impressionist works we mentioned painted? 4. Which musical instrument can be seen in Degas's The Dance Class? 5. Which painter created Boulevard Montmartre at Night? Ne propose pas de réponse. Dis si le joueur à faux ou juste. Si le joueur à faux à une question, il doit recommencer le quiz au début.A la fin de chaque question ajoute Action: [numéro de la question]. Si le joueur à juste à la question 5, ajoute à la fin de ton message Action: Valid Quiz";
         string newprompt = "Tu peux commencer le quiz.";
         EventManager.Instance.TriggerContextSet(newcontext);
         EventManager.Instance.TriggerOnAddedToPrompt(newprompt);
         EventManager.Instance.TriggerRequestSended();
+        
     }
 }

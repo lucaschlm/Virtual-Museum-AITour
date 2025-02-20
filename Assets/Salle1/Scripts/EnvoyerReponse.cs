@@ -190,4 +190,23 @@ class EnvoyerReponse : MonoBehaviour {
         EventManager.Instance.TriggerOnAddedToPrompt(prompt);
         EventManager.Instance.TriggerRequestSended(); 
     }
+
+    // Question 5 : Qui a peint Boulevard MontMartre 
+    public void AQ5Imp(){ // Degas
+        string prompt = "Degas (Mauvaise Réponse)";
+        EventManager.Instance.TriggerOnAddedToPrompt(prompt);
+        EventManager.Instance.TriggerRequestSended(); 
+    }
+
+    public void BQ5Imp(){ // Manet
+        string prompt = "Manet (Mauvaise Réponse)";
+        EventManager.Instance.TriggerOnAddedToPrompt(prompt);
+        EventManager.Instance.TriggerRequestSended(); 
+    }
+
+    public void CQ5Imp(){ // Pissaro
+        string prompt = "C'est Camille Pissarro qui a peint Boulevard MontMartre , effet de nuit";
+        EventManager.Instance.TriggerOnAddedToPrompt(prompt);
+        EventManager.Instance.TriggerRequestSended(); 
+    }
 }

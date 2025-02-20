@@ -963,6 +963,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b5885baaf0bd32438d5b3e72c47b405, type: 3}
+--- !u!1 &528325872 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8382338832344106972, guid: 610b779ee044e1d469f13f277cca000d, type: 3}
+  m_PrefabInstance: {fileID: 81720301}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &534008241
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1522,12 +1527,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6828450946644198295, guid: a442d4ad2f76df14792e8442ab02c462, type: 3}
+      propertyPath: m_maxToken
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 6828450946644198295, guid: a442d4ad2f76df14792e8442ab02c462, type: 3}
       propertyPath: m_textFieldTMP
       value: 
       objectReference: {fileID: 741077263}
     - target: {fileID: 6828450946644198295, guid: a442d4ad2f76df14792e8442ab02c462, type: 3}
       propertyPath: m_promptInitial
-      value: 'You are a guide.  Your name is Stephan. answer shortly. '
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6828450946644198295, guid: a442d4ad2f76df14792e8442ab02c462, type: 3}
+      propertyPath: m_enableInitialPrompt
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7251660862940854912, guid: a442d4ad2f76df14792e8442ab02c462, type: 3}
       propertyPath: m_Name
@@ -2314,6 +2327,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 81720302}
     m_Modifications:
+    - target: {fileID: 792607183118740819, guid: e2cdc1ff0c1c98c45bfad4bb3e9b97c3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AQ5Imp
+      objectReference: {fileID: 0}
     - target: {fileID: 1013299202799703702, guid: e2cdc1ff0c1c98c45bfad4bb3e9b97c3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: AQ4Imp
@@ -2325,6 +2342,10 @@ PrefabInstance:
     - target: {fileID: 1394365954996031629, guid: e2cdc1ff0c1c98c45bfad4bb3e9b97c3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: BQ2Imp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1558828132530149766, guid: e2cdc1ff0c1c98c45bfad4bb3e9b97c3, type: 3}
+      propertyPath: m_text
+      value: Degas
       objectReference: {fileID: 0}
     - target: {fileID: 1700459829817797918, guid: e2cdc1ff0c1c98c45bfad4bb3e9b97c3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -2338,9 +2359,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: ReponseQuiz
       objectReference: {fileID: 0}
+    - target: {fileID: 2393516331153242381, guid: e2cdc1ff0c1c98c45bfad4bb3e9b97c3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CQ5Imp
+      objectReference: {fileID: 0}
     - target: {fileID: 2618369812016186985, guid: e2cdc1ff0c1c98c45bfad4bb3e9b97c3, type: 3}
       propertyPath: m_text
       value: Violon
+      objectReference: {fileID: 0}
+    - target: {fileID: 2829658443828955289, guid: e2cdc1ff0c1c98c45bfad4bb3e9b97c3, type: 3}
+      propertyPath: m_text
+      value: Pissaro
       objectReference: {fileID: 0}
     - target: {fileID: 2940750776591162805, guid: e2cdc1ff0c1c98c45bfad4bb3e9b97c3, type: 3}
       propertyPath: m_Name
@@ -2401,6 +2430,10 @@ PrefabInstance:
     - target: {fileID: 5188444553423806464, guid: e2cdc1ff0c1c98c45bfad4bb3e9b97c3, type: 3}
       propertyPath: m_Name
       value: Q2Imp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5362186325238161330, guid: e2cdc1ff0c1c98c45bfad4bb3e9b97c3, type: 3}
+      propertyPath: m_text
+      value: Manet
       objectReference: {fileID: 0}
     - target: {fileID: 5736841675957412979, guid: e2cdc1ff0c1c98c45bfad4bb3e9b97c3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -2465,6 +2498,10 @@ PrefabInstance:
     - target: {fileID: 7865881712065707430, guid: e2cdc1ff0c1c98c45bfad4bb3e9b97c3, type: 3}
       propertyPath: m_Name
       value: Q4Imp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8277062159775152190, guid: e2cdc1ff0c1c98c45bfad4bb3e9b97c3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: BQ5Imp
       objectReference: {fileID: 0}
     - target: {fileID: 8514631285367096281, guid: e2cdc1ff0c1c98c45bfad4bb3e9b97c3, type: 3}
       propertyPath: m_text
@@ -2896,7 +2933,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_currentScene: 
-  m_PNJ: {fileID: 152167440}
+  m_PNJ: {fileID: 528325872}
 --- !u!4 &2142562866
 Transform:
   m_ObjectHideFlags: 0

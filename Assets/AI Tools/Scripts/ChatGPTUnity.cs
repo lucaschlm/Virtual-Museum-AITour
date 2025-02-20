@@ -219,6 +219,7 @@ public class ChatGPTUnity : MonoBehaviour
         if (request.result == UnityWebRequest.Result.Success)
         {
             string response = ExtractContent(request.downloadHandler.text);
+            Debug.Log("Réponse complète : " + request.downloadHandler.text);
             EventManager.Instance.TriggerRequestCompleted(response);
         }
         else
@@ -274,7 +275,6 @@ public class ChatGPTUnity : MonoBehaviour
         return input
             .Replace("\\", "\\\\")
             .Replace("\"", "\\\"")
-            // .Replace("\"", "\\") //on essaie
             .Replace("\n", "\\n")
             .Replace("\r", "\\r")
             .Replace("\t", "\\t")

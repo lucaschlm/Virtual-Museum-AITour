@@ -152,4 +152,42 @@ class EnvoyerReponse : MonoBehaviour {
         EventManager.Instance.TriggerOnAddedToPrompt(prompt);
         EventManager.Instance.TriggerRequestSended(); 
     }
+
+    // Question 3 : De quel pays viennent la plus par des tableau
+    public void AQ3Imp(){ // Autriche 
+        string prompt = "Autriche (Mauvaise réponse)";
+        EventManager.Instance.TriggerOnAddedToPrompt(prompt);
+        EventManager.Instance.TriggerRequestSended(); 
+    }
+
+    public void BQ3Imp(){ // France
+        string prompt = "La pluspart des tableaux viennent de France (Bonne france)";
+        EventManager.Instance.TriggerOnAddedToPrompt(prompt);
+        EventManager.Instance.TriggerRequestSended(); 
+    }
+
+    public void CQ3Imp(){ // Allemagne 
+        string prompt = "Allemagne (Mauvaise réponse)";
+        EventManager.Instance.TriggerOnAddedToPrompt(prompt);
+        EventManager.Instance.TriggerRequestSended(); 
+    }
+
+    // Question 4 : Quel instrument se trouve dans la classe de danse
+    public void AQ4Imp(){ // Violon
+        string prompt = "C'est un violon (ou piano) qui se trouve dans la classe de danse de Degas(Bonne Réponse)";
+        EventManager.Instance.TriggerOnAddedToPrompt(prompt);
+        EventManager.Instance.TriggerRequestSended(); 
+    }
+
+    public void BQ4Imp(){ // Harpe
+        string prompt = "une harpe";
+        EventManager.Instance.TriggerOnAddedToPrompt(prompt);
+        EventManager.Instance.TriggerRequestSended(); 
+    }
+
+    public void CQ4Imp(){ // guitare
+        string prompt = "Guitare";
+        EventManager.Instance.TriggerOnAddedToPrompt(prompt);
+        EventManager.Instance.TriggerRequestSended(); 
+    }
 }

@@ -54,8 +54,8 @@ public class VRMenuManager : MonoBehaviour
     }
 
 
-    public void OnOtherButtonPressed()
+    public void QuitApplication()
     {
-        Debug.Log("Bouton cliqué, mais aucune action assignée.");
+        Application.Quit();
     }
 }

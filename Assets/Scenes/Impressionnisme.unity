@@ -377,7 +377,7 @@ PrefabInstance:
       objectReference: {fileID: 1626889529}
     - target: {fileID: 7606894475812055144, guid: 610b779ee044e1d469f13f277cca000d, type: 3}
       propertyPath: stoppingDistance
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7606894475812055144, guid: 610b779ee044e1d469f13f277cca000d, type: 3}
       propertyPath: stoppingDistanceOeuvre
@@ -2061,6 +2061,10 @@ PrefabInstance:
     - target: {fileID: 4288482345701494666, guid: cb0baa981a1b63d4abd95ab274f7fce3, type: 3}
       propertyPath: m_Name
       value: TptoNext
+      objectReference: {fileID: 0}
+    - target: {fileID: 4288482345701494666, guid: cb0baa981a1b63d4abd95ab274f7fce3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5583500488395835092, guid: cb0baa981a1b63d4abd95ab274f7fce3, type: 3}
       propertyPath: m_Camera

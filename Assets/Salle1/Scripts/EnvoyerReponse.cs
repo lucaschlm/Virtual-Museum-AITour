@@ -37,7 +37,7 @@ class EnvoyerReponse : MonoBehaviour {
 
     // QUESTION 2 : Quel artiste a sculpté Moïse
     public void AQ2Ren(){ // Léonard de vinci
-        string prompt = "Léonard de vinci (mauvaise réponse)";
+        string prompt = "Léonard de vinci  ";
         EventManager.Instance.TriggerOnAddedToPrompt(prompt);
         EventManager.Instance.TriggerRequestSended(); 
     }
@@ -136,7 +136,7 @@ class EnvoyerReponse : MonoBehaviour {
 
     // Question 2 : Quelle est l'atmosphère de l'Absynthe
     public void AQ2Imp(){ //Triste 
-        string prompt = "l'atmosphère est vraiment triste";
+        string prompt = "Dans le tableau l'Absynthe, l'atmosphère est vraiment triste";
         EventManager.Instance.TriggerOnAddedToPrompt(prompt);
         EventManager.Instance.TriggerRequestSended(); 
     }
@@ -148,33 +148,33 @@ class EnvoyerReponse : MonoBehaviour {
     }
 
     public void CQ2Imp(){ // neutre 
-        string prompt = "L'atmosphère est normal (Mauvaise réponse)";
+        string prompt = "L'atmosphère est normal  ";
         EventManager.Instance.TriggerOnAddedToPrompt(prompt);
         EventManager.Instance.TriggerRequestSended(); 
     }
 
     // Question 3 : De quel pays viennent la plus par des tableau
     public void AQ3Imp(){ // Autriche 
-        string prompt = "Autriche (Mauvaise réponse)";
+        string prompt = "Autriche  ";
         EventManager.Instance.TriggerOnAddedToPrompt(prompt);
         EventManager.Instance.TriggerRequestSended(); 
     }
 
     public void BQ3Imp(){ // France
-        string prompt = "La pluspart des tableaux viennent de France (Bonne france)";
+        string prompt = "La pluspart des tableaux viennent de France";
         EventManager.Instance.TriggerOnAddedToPrompt(prompt);
         EventManager.Instance.TriggerRequestSended(); 
     }
 
     public void CQ3Imp(){ // Allemagne 
-        string prompt = "Allemagne (Mauvaise réponse)";
+        string prompt = "Allemagne  ";
         EventManager.Instance.TriggerOnAddedToPrompt(prompt);
         EventManager.Instance.TriggerRequestSended(); 
     }
 
     // Question 4 : Quel instrument se trouve dans la classe de danse
     public void AQ4Imp(){ // Violon
-        string prompt = "C'est un violon (ou piano) qui se trouve dans la classe de danse de Degas(Bonne Réponse)";
+        string prompt = "C'est un violon (ou piano) qui se trouve dans la classe de danse de Degas ";
         EventManager.Instance.TriggerOnAddedToPrompt(prompt);
         EventManager.Instance.TriggerRequestSended(); 
     }
@@ -193,19 +193,19 @@ class EnvoyerReponse : MonoBehaviour {
 
     // Question 5 : Qui a peint Boulevard MontMartre 
     public void AQ5Imp(){ // Degas
-        string prompt = "Degas (Mauvaise Réponse)";
+        string prompt = "Degas  ";
         EventManager.Instance.TriggerOnAddedToPrompt(prompt);
         EventManager.Instance.TriggerRequestSended(); 
     }
 
     public void BQ5Imp(){ // Manet
-        string prompt = "Manet (Mauvaise Réponse)";
+        string prompt = "Manet  ";
         EventManager.Instance.TriggerOnAddedToPrompt(prompt);
         EventManager.Instance.TriggerRequestSended(); 
     }
 
     public void CQ5Imp(){ // Pissaro
-        string prompt = "C'est Camille Pissarro qui a peint Boulevard MontMartre , effet de nuit";
+        string prompt = "C'est Camille Pissarro qui a peint Boulevard MontMartre , effet de nuit  ";
         EventManager.Instance.TriggerOnAddedToPrompt(prompt);
         EventManager.Instance.TriggerRequestSended(); 
     }

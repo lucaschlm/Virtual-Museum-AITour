@@ -713,6 +713,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   stoppingDistance: 3.1
+  stoppingDistanceOeuvre: 2
 --- !u!95 &946583826158004957
 Animator:
   serializedVersion: 7
@@ -1607,7 +1608,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cca5296bab8987d4288d681af4c4fe1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_playerAnchor: {fileID: 0}
   rotationSpeed: 5
 --- !u!1 &5074896747937593661
 GameObject:

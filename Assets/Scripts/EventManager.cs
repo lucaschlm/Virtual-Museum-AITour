@@ -5,11 +5,16 @@ using System.Collections;
 public class EventManager : MonoBehaviour
 {
 
-    public delegate void MyDelegateFonction(string message);
+    public delegate void MyDelegateFonctionTakesStringReturnVoid(string message);
+    public delegate string MyDelegateFonctionTakesVoidReturnString();
 
-    public event MyDelegateFonction OnAddedToPrompt;
+    public event MyDelegateFonctionTakesStringReturnVoid OnContextSet;
+    public event MyDelegateFonctionTakesVoidReturnString OnContextGet;
+    public event MyDelegateFonctionTakesStringReturnVoid OnAddedToPrompt;
     public event Action OnRequestSended;
     public event Action<string> OnRequestCompleted;
+    public event Action OnDictationStarted;
+    public event Action OnDictationEnded;
 
     public static EventManager Instance { get; private set; }
 
@@ -26,7 +31,7 @@ public class EventManager : MonoBehaviour
     }
 
     
-    public void TriggerRequestCompleted(string message)   // Méthode pour déclencher l'événement OnRequestCompleted
+    public void TriggerRequestCompleted(string message)   // Mï¿½thode pour dï¿½clencher l'ï¿½vï¿½nement OnRequestCompleted
     {
         OnRequestCompleted?.Invoke(message);
     }
@@ -41,5 +46,25 @@ public class EventManager : MonoBehaviour
         OnAddedToPrompt?.Invoke(message);
     }
 
+    public void TriggerDictationStarted()
+    {
+        Debug.Log("La dictation commence.");
+        OnDictationStarted?.Invoke();
+    }
 
+    public void TriggerDictationEnded()
+    {
+        Debug.Log("La dictation se termine.");
+        OnDictationEnded?.Invoke();
+    }
+
+    public void TriggerContextSet(string context)
+    {
+        OnContextSet?.Invoke(context);
+    }
+
+    public string TriggerContextGet()
+    {
+        return OnContextGet?.Invoke();
+    }
 }

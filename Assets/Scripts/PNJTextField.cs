@@ -3,8 +3,7 @@ using static UnityEngine.GraphicsBuffer;
 
 public class PNJTextField : MonoBehaviour
 {
-    [SerializeField]
-    Transform m_playerAnchor;
+    private Transform m_playerAnchor;
 
     [SerializeField]
     private float rotationSpeed = 5f;

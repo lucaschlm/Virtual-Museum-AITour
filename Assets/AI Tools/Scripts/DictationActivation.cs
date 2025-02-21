@@ -27,6 +27,10 @@ namespace Meta.Voice.Samples.Dictation
         [SerializeField]
         private AudioSource m_micOff;
 
+        [TextArea(3, 10)] // Min 3 lignes, max 10 lignes visibles dans l'Inspector
+        [SerializeField]
+        private string m_fullTranscription = "";
+
         public void OnEnable()
         {
 
@@ -51,7 +55,7 @@ namespace Meta.Voice.Samples.Dictation
                 m_activateMic.action.performed += ToggleActivation;
                 m_activateMic.action.canceled += ToggleDesactivation;
 
-                _dictation.DictationEvents.OnFullTranscription.AddListener(HandleRequest);
+                _dictation.DictationEvents.OnFullTranscription.AddListener(HandleFullTranscription);
             }
         }
 
@@ -61,8 +65,10 @@ namespace Meta.Voice.Samples.Dictation
         {
             if (!_dictation.MicActive)
             {
+                EventManager.Instance.TriggerDictationStarted();
+                m_fullTranscription = "";
                 PlayMicStartSound();
-                Debug.Log("[DictationActivation] Début de l'enregistrement...");
+                //Debug.Log("[DictationActivation] Début de l'enregistrement...");
                 _dictation.Activate();
             }
         }
@@ -73,15 +79,27 @@ namespace Meta.Voice.Samples.Dictation
         {
             if (_dictation.MicActive)
             {
+                EventManager.Instance.TriggerDictationEnded();
                 PlayMicStopSound();
-                Debug.Log("[DictationActivation] ...Fin de l'enregistrement");
+                //Debug.Log("[DictationActivation] ...Fin de l'enregistrement");
                 _dictation.Deactivate();
             }
         }
 
-        public void HandleRequest(string transcription)
+        public void HandleFullTranscription(string transcription)
         {
-            EventManager.Instance.TriggerRequestSended();
+            m_fullTranscription += transcription + " ";
+
+            if (!_dictation.MicActive)
+            {
+                //Debug.Log("Vous : " + m_fullTranscription);
+
+                if (m_fullTranscription != " ")
+                {
+                    EventManager.Instance.TriggerOnAddedToPrompt(m_fullTranscription);
+                    EventManager.Instance.TriggerRequestSended();
+                }
+            }
         }
 
 
@@ -107,7 +125,7 @@ namespace Meta.Voice.Samples.Dictation
         {
             m_activateMic.action.performed -= ToggleActivation;
             m_activateMic.action.canceled -= ToggleDesactivation;
-            _dictation.DictationEvents.OnFullTranscription.RemoveListener(HandleRequest);
+            _dictation.DictationEvents.OnFullTranscription.RemoveListener(HandleFullTranscription);
         }
     }
 }

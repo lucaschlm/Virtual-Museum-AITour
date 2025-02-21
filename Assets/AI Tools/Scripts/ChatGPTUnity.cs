@@ -147,21 +147,20 @@ public class ChatGPTUnity : MonoBehaviour
 
     private void SceneChangedHandler(string nextScene)
     {
+        Debug.Log("[ChatGPTUnity] Je cherche les sous-titres.");
         LookForPNJSubtitles();
     }
 
     private void LookForPNJSubtitles()
     {
+        
         GameObject pnj = GameObject.Find("PNJ");
 
-        if (pnj != null)
-        {
-            Transform canvasTransform = pnj.transform.Find("Canvas");
+        Transform canvasTransform = pnj.transform.Find("Canvas");
 
-            if (canvasTransform != null)
-            {
-                m_textFieldTMP = canvasTransform.GetComponentInChildren<TextMeshProUGUI>();
-            }
+        if (canvasTransform != null)
+        {
+            m_textFieldTMP = canvasTransform.GetComponentInChildren<TextMeshProUGUI>();
         }
 
         if (m_textFieldTMP == null)
@@ -190,6 +189,7 @@ public class ChatGPTUnity : MonoBehaviour
     {
         if (!string.IsNullOrEmpty(m_prompt))
         {
+            LookForPNJSubtitles();
             AddMessageToHistory("user", m_prompt);
             StartCoroutine(SendRequestToChatGPT(m_prompt));
             Debug.Log("Vous : " + m_prompt);

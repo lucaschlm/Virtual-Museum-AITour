@@ -45,10 +45,10 @@ public class Teleport : MonoBehaviour{
             yield return null; // Attend la frame d'après 
         }
 
-        yield return new WaitForSeconds(0.5f); // attend une demi seconde
+        yield return new WaitForSeconds(1f); // attend une demi seconde
 
         asyncLoad.allowSceneActivation = true; // Active la scène
-
+        EventManager.Instance.TriggerSceneChanged(scene);
         gameManager.Move(name);
     }
 
@@ -59,7 +59,7 @@ public class Teleport : MonoBehaviour{
     void OnTriggerEnter(Collider other){
         if(other.CompareTag("Player")){
             StartCoroutine(LoadSceneAsync(scene));
-            EventManager.Instance.TriggerSceneChanged(scene);
+            
         }
     }
 

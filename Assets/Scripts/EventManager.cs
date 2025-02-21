@@ -8,6 +8,8 @@ public class EventManager : MonoBehaviour
     public delegate void MyDelegateFonctionTakesStringReturnVoid(string message);
     public delegate string MyDelegateFonctionTakesVoidReturnString();
 
+
+    public event Action<string> OnSceneChanged;
     public event MyDelegateFonctionTakesStringReturnVoid OnContextSet;
     public event MyDelegateFonctionTakesVoidReturnString OnContextGet;
     public event MyDelegateFonctionTakesStringReturnVoid OnAddedToPrompt;
@@ -66,5 +68,10 @@ public class EventManager : MonoBehaviour
     public string TriggerContextGet()
     {
         return OnContextGet?.Invoke();
+    }
+
+    public void TriggerSceneChanged(string nextScene)
+    {
+        OnSceneChanged?.Invoke(nextScene);
     }
 }

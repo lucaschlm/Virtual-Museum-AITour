@@ -107,6 +107,7 @@ public class ChatGPTUnity : MonoBehaviour
         EventManager.Instance.OnRequestSended += HandleStopTypingMessage;
         EventManager.Instance.OnContextSet += SetContext;
         EventManager.Instance.OnContextGet += GetContext;
+        EventManager.Instance.OnSceneChanged += SceneChangedHandler;
 
         messageHistory.Clear();
         ClearPrompt();
@@ -143,6 +144,11 @@ public class ChatGPTUnity : MonoBehaviour
         return m_context;
     }
 
+
+    private void SceneChangedHandler(string nextScene)
+    {
+        LookForPNJSubtitles();
+    }
 
     private void LookForPNJSubtitles()
     {

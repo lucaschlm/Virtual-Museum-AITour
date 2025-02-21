@@ -71,6 +71,7 @@ public class PNJFollow : MonoBehaviour
         m_Impressionnisme.Add("Poppy Field","Cible_Coquelicots");
         m_Impressionnisme.Add("Poppies at Argenteuil","Cible_Coquelicots");
         m_Impressionnisme.Add("Danse à la campagne", "Cible_Danse_Campagne");
+        m_Impressionnisme.Add("Danse à la Campagne", "Cible_Danse_Campagne");
         m_Impressionnisme.Add("Dance in the Country", "Cible_Danse_Campagne");
         m_Impressionnisme.Add("La Neige à Louveciennes", "Cible_Louveciennes");
         m_Impressionnisme.Add("Snow at Louveciennes", "Cible_Louveciennes");
@@ -157,13 +158,6 @@ public class PNJFollow : MonoBehaviour
         
     
 
-    void OnTriggerEnter(Collider other){
-        // Fonction pour essayer
-        if(other.CompareTag("Player")){
-            Choose("Moïse","Renaissance");
-            Choose("Le Berceau","Impressionnisme");
-        }
-    }
 
 
     private void Update()

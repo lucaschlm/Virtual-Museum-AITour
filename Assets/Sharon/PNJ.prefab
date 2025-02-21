@@ -2875,7 +2875,7 @@ GameObject:
   - component: {fileID: 1858073243427116359}
   - component: {fileID: 8477427112442188426}
   m_Layer: 0
-  m_Name: PNJ2
+  m_Name: PNJ
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

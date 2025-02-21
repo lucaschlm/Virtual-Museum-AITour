@@ -18,7 +18,7 @@ class EnvoyerReponse : MonoBehaviour {
 
     // QUESTION 1 : Quelle oeuvre représente un mariage
     public void AQ1Ren(){ // Les Noces de Cana
-        string prompt = "Ce sont les Noces de Cana qui représente une scène de mariage";
+        string prompt = "Ce sont les Noces de Cana (The Wedding at Cana) qui représente une scène de mariage";
         EventManager.Instance.TriggerOnAddedToPrompt(prompt);
         EventManager.Instance.TriggerRequestSended(); 
     }
@@ -75,7 +75,7 @@ class EnvoyerReponse : MonoBehaviour {
 
     // QUESTION 4 : Quel sculpture représente celui qui a combatue Goliath
     public void AQ4Ren(){ // David
-        string prompt = "C'est David qui a battue Goliath";
+        string prompt = "David";
         EventManager.Instance.TriggerOnAddedToPrompt(prompt);
         EventManager.Instance.TriggerRequestSended(); 
     }

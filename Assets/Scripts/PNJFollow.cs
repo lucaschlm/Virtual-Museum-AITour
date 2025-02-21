@@ -158,13 +158,6 @@ public class PNJFollow : MonoBehaviour
         
     
 
-    void OnTriggerEnter(Collider other){
-        // Fonction pour essayer
-        if(other.CompareTag("Player")){
-            Choose("Moïse","Renaissance");
-            Choose("Le Berceau","Impressionnisme");
-        }
-    }
 
 
     private void Update()

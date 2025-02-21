@@ -59,6 +59,7 @@ public class Teleport : MonoBehaviour{
     void OnTriggerEnter(Collider other){
         if(other.CompareTag("Player")){
             StartCoroutine(LoadSceneAsync(scene));
+            EventManager.Instance.TriggerSceneChanged(scene);
         }
     }
 

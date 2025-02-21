@@ -73,7 +73,10 @@ public class RunJets : MonoBehaviour
 
     void TextToSpeech(string inputText)
     {
-        m_inputText = inputText;
+        string[] message = inputText.Split("Action:",System.StringSplitOptions.None);
+        m_inputText = message[0];
+        // m_inputText = inputText;
+
         string ptext;
         if (hasPhenomeDictionary)
         {

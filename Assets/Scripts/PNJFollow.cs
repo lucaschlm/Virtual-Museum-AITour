@@ -34,6 +34,7 @@ public class PNJFollow : MonoBehaviour
         m_Renaissance.Add("Le Buste d'Annibal", "Cible_Annibal");
         m_Renaissance.Add("Hannibal", "Cible_Annibal");
         m_Renaissance.Add("Bust of Hannibal","Cible_Annibal");
+        m_Renaissance.Add("The Bust of Hannibal","Cible_Annibal");
         m_Renaissance.Add("La Création d'Adam", "Cible_Creation");
         m_Renaissance.Add("Création d'Adam", "Cible_Creation");
         m_Renaissance.Add("La Création dAdam", "Cible_Creation");
@@ -41,6 +42,8 @@ public class PNJFollow : MonoBehaviour
         m_Renaissance.Add("Creation of Adam", "Cible_Creation");
         m_Renaissance.Add("La Cène", "Cible_Cene");
         m_Renaissance.Add("The Last Supper", "Cible_Cene");
+        m_Renaissance.Add("L'Annonciation","Cible_Annonciation");
+        m_Renaissance.Add("The Annunciation","Cible_Annonciation");
         m_Renaissance.Add("David", "Cible_David");
         m_Renaissance.Add("Le Jardin des Délices", "Cible_Jardin");
         m_Renaissance.Add("The Garden of Earthly Delights", "Cible_Jardin");
@@ -50,6 +53,7 @@ public class PNJFollow : MonoBehaviour
         m_Renaissance.Add("Mona Lisa", "Cible_Joconde");
         m_Renaissance.Add("L'Enfant à l'Oie", "Cible_Enfant");
         m_Renaissance.Add("Boy with a Goose", "Cible_Enfant");
+        m_Renaissance.Add("The Boy with a Goose", "Cible_Enfant");
         m_Renaissance.Add("Child with a Goose", "Cible_Enfant");
         m_Renaissance.Add("La Madone Sixtine", "Cible_Madone");
         m_Renaissance.Add("The Sistine Madonna", "Cible_Madone");

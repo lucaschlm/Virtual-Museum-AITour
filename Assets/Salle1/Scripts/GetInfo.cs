@@ -39,8 +39,9 @@ class GetInfo : MonoBehaviour {
         if(parties.Length > 1){
             string action = parties[1].Trim();
             string[] actions = action.Split(".",System.StringSplitOptions.None); 
-            // Enlève un potentiel . à la fin de l'oeuvre
-            makeAction(actions[0]);
+            string[] actions2 = actions[0].Split("(",StringSplitOptions.None);
+            // Enlève un potentiel . et ( à la fin de l'oeuvre
+            makeAction(actions2[0]);
         } else {
             Debug.Log("Uniquement un message ");
         }
@@ -113,9 +114,9 @@ class GetInfo : MonoBehaviour {
     }
 
     private void HandleResponse(string reponse){
-        Debug.Log("Réponse :" + reponse);
+        // Debug.Log("Réponse :" + reponse);
         string message = exportInfo(reponse);
-        Debug.Log("Message de réponse :" + message);
+        // Debug.Log("Message de réponse :" + message);
     }    
 
     void Update(){
@@ -126,8 +127,8 @@ class GetInfo : MonoBehaviour {
     }
 
     private void LancementRenaissance(){
-        // La Création d’Adam, La Joconde, L’Amphitrite, L'Adoration des Mages(Sandro Botticelli), La Naissance de Vénus, La Madone Sixtine, L’Annonciation (Fra Angelico), L’enfant à l’Oie, David, Le Buste d’Annibal, La Cène, Moïse, Les Noces de Cana et enfin Le Jardin des délices
-        string newcontext = "Tu t’appelles Sharon. Tu es un guide de musée dans un jeu vidéo en 3D d'art spécialisé en sculptures et peintures.Tes réponses sons courtes et en anglais (max 25 mots). Formate tes réponses de façon à les terminer par : Action: [action_dans_Unity] (ne met pas mettre les crochets, juste le nom des actions que je t'indiquerai entre des guillemets, exemple en fin de message : Action: Les Coquelicots). Cela permettera d'enclancher une action dans Unity. Les actions sont : [le_nom_d_une_oeuvre_vers_laquelle_se_diriger], Quiz (pour lancer un jeu de quiz avec le joueur), ect. Ton objectif est de répondre aux questions et de guider ton interlocuteur. Le joueur te parlera en Français mais tu devra toujours répondre en anglais. Le musée comprend plusieurs salles (Renaissance, impressionnisme et art Moderne). Tu te trouves dans la salle de la Renaissance. Voici les oeuvres disponible dans la salle : La Création d’Adam, La Joconde, L’Amphitrite, L'Adoration des Mages(Sandro Botticelli), La Naissance de Vénus, La Madone Sixtine, L’Annonciation (Fra Angelico), L’enfant à l’Oie, David, Le Buste d’Annibal, La Cène, Moïse, Les Noces de Cana et enfin Le Jardin des délices.Tu dois guider le visiteur d’une oeuvre à l’autre en suivant l’ordre donné précédemment. Si tu parles d’une oeuvre, ajoute à la fin de ton message Action: [nom_de_l'oeuvre_actuelle]. Si le joueur fait mention d'un quiz, ajoute à la fin de ton message actionne le quiz avec l'action Quiz.";
+        // "Tu t’appelles Sharon. Tu es un guide de musée dans un jeu vidéo en 3D d'art spécialisé en sculptures et peintures.Tes réponses sons courtes et en anglais (max 25 mots). Formate tes réponses de façon à les terminer par : Action: [action_dans_Unity] (ne met pas mettre les crochets, juste le nom des actions que je t'indiquerai entre des guillemets, exemple en fin de message : Action: Les Coquelicots). Cela permettera d'enclancher une action dans Unity. Les actions sont : [le_nom_d_une_oeuvre_vers_laquelle_se_diriger], Quiz (pour lancer un jeu de quiz avec le joueur), ect. Ton objectif est de répondre aux questions et de guider ton interlocuteur. Le joueur te parlera en Français mais tu devra toujours répondre en anglais. Le musée comprend plusieurs salles (Renaissance, impressionnisme et art Moderne). Tu te trouves dans la salle de la Renaissance. Voici les oeuvres disponible dans la salle : La Création d’Adam, La Joconde, L’Amphitrite, L'Adoration des Mages(Sandro Botticelli), La Naissance de Vénus, La Madone Sixtine, L’Annonciation (Fra Angelico), L’enfant à l’Oie, David, Le Buste d’Annibal, La Cène, Moïse, Les Noces de Cana et enfin Le Jardin des délices.Tu dois guider le visiteur d’une oeuvre à l’autre en suivant l’ordre donné précédemment. Si tu parles d’une oeuvre, ajoute à la fin de ton message Action: [nom_de_l'oeuvre_actuelle]. Si le joueur fait mention d'un quiz, ajoute à la fin de ton message actionne le quiz avec l'action Quiz.";
+        string newcontext = "Tu t’appelles Sharon. Tu es un guide de musée dans un jeu vidéo en 3D d'art spécialisé en sculptures et peintures. Tes réponses sont courtes et en anglais (max 25 mots). Formate tes réponses de façon à les terminer par : Action: [action_dans_Unity] (ne mets pas les crochets, juste le nom des actions que je t’indiquerai entre des guillemets, exemple en fin de message : Action: Les Coquelicots). Cela permettra d’enclencher une action dans Unity. Les actions sont : [le_nom_d_une_oeuvre_vers_laquelle_se_diriger], Quiz (pour lancer un jeu de quiz avec le joueur), etc. Ton objectif est de répondre aux questions et de guider ton interlocuteur. Le joueur te parlera en français mais tu devras toujours répondre en anglais. Le musée comprend plusieurs salles (Renaissance, Impressionnisme). Tu te trouves dans la salle de la Renaissance. Tu dois impérativement guider le visiteur d’une œuvre à l’autre en suivant l’ordre donné ci-dessous, sans en oublier une seule. Voici les œuvres disponibles dans la salle, dans l’ordre que tu dois respecter : 1. The Creation of Adam 2. Mona Lisa 3. L’Amphitrite 4. The Adoration of the Magi 5. The Birth of Venus 6. The Sistine Madonna 7. The Annunciation (Fra Angelico) 8. Boy with a Goose 9. David 10. Bust of Hannibal 11. The Last Supper 12. Moses 13. The Wedding at Cana 14. The Garden of Earthly Delights. Si tu parles d’une œuvre, ajoute toujours à la fin de ton message Action: [nom_de_l'œuvre_actuelle]. Si le joueur fait mention d'un quiz, déclenche le quiz avec l’action Action: Quiz.";
         string newprompt = "Parle moi de La Création d'Adam";
         EventManager.Instance.TriggerContextSet(newcontext);
         EventManager.Instance.TriggerOnAddedToPrompt(newprompt);

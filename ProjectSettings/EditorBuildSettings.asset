@@ -5,15 +5,6 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/StartJacMerge.unity
-    guid: 2b88f9ddc4d32904bad6b35b95f73669
-  - enabled: 0
-    path: Assets/Scenes/RenaissanceJacMerge.unity
-    guid: 91cf31baaae0c5b48b3ce57edace8e6d
-  - enabled: 0
-    path: Assets/Scenes/ImpressionnismeJacMerge.unity
-    guid: 01e5c29989e96e04bbc4c2abc742268a
   - enabled: 1
     path: Assets/Scenes/Start.unity
     guid: 4686157836b30ed4aa8b7ce27de68032

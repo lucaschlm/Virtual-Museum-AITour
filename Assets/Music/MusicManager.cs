@@ -27,10 +27,10 @@ public class MusicManager : MonoBehaviour
 
     private void Start()
     {
-        if (outdoorBgMusic != null)
+        if (outdoorBgMusic == null)
             Debug.Log("[MusicManager] Il manque la 'outdoorBgMusic'");
 
-        if (museumBgMusic != null)
+        if (museumBgMusic == null)
             Debug.Log("[MusicManager] Il manque la 'museumBgMusic'");
 
         PlayMusic(outdoorBgMusic);

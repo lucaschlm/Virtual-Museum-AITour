@@ -38,8 +38,8 @@ public class GameManager : MonoBehaviour {
     // Valide la scène et affiche le Tp
     public void Valide(bool v){
         Current.Validee = v;
+        Liste.Display();
         if(v){
-            // Bug encore un peu, on verra demain
             GameObject Tp = GameObject.Find("Tp");
             if(Tp != null){
                 TptoNext = Tp.transform.Find("TptoNext").gameObject;

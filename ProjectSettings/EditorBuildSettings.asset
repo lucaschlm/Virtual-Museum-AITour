@@ -6,14 +6,14 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/StartJacMerge.unity
-    guid: 2b88f9ddc4d32904bad6b35b95f73669
+    path: Assets/Scenes/Start.unity
+    guid: 4686157836b30ed4aa8b7ce27de68032
   - enabled: 1
-    path: Assets/Scenes/RenaissanceJacMerge.unity
-    guid: 91cf31baaae0c5b48b3ce57edace8e6d
+    path: Assets/Scenes/Renaissance.unity
+    guid: 437162aba3888164cb117adc797abca5
   - enabled: 1
-    path: Assets/Scenes/ImpressionnismeJacMerge.unity
-    guid: 01e5c29989e96e04bbc4c2abc742268a
+    path: Assets/Scenes/Impressionnisme.unity
+    guid: 3ef0031e9c6725140954a6842fd2be93
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 6add4977def4e6749915f13365a2507f, type: 2}

@@ -15,8 +15,8 @@ But what makes **Athena Museum** truly special? 🤔
 
 ## 🎥 Trailer  
 🚀 Watch Athena Museum in action:  
-<a href="./Ressources/athena-museum-trailer.mp4">
-  <img src="./Ressources/screenshot-title-screen.png" width="600">
+<a href="https://youtu.be/RlpYOzcSOGg">
+  <img src="./Ressources/miniature.png" width="600">
 </a>  
 
 ---

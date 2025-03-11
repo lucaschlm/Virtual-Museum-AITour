@@ -15,8 +15,30 @@ But what makes **Athena Museum** truly special? 🤔
 
 ## 🎥 Trailer  
 🚀 Watch Athena Museum in action:  
+<a href="./Ressources/athena-museum-trailer.mp4">
+  <img src="./Ressources/screenshot-title-screen.png" width="600">
+</a>  
 
-[![Watch the Trailer](https://drive.google.com/file/d/1ZmWPUfrcxmVtEVipe8Np_gbqvJhFGH5D/view?usp=sharing)](https://drive.google.com/file/d/1WWv_MbAa0DjHozBhLoNqGss24tvK8pfd/view?usp=drive_link)
+---
+
+## 📸 Screenshots  
+### AI Guide in Action  
+<img src="./Ressources/demo-ai-guide.gif" width="500">  
+
+### Close-up of an Art Piece  
+<img src="./Ressources/screenshot-art-close-up.png" width="500">  
+
+### Renaissance Room  
+<img src="./Ressources/screenshot-renaissance-room.png" width="500">  
+
+### Impressionist Hall  
+<img src="./Ressources/screenshot-impressionist-hall.png" width="500">  
+
+### VR Controls  
+<img src="./Ressources/screenshot-vr-controls.png" width="500">  
+
+### Interactive Quiz Feature  
+<img src="./Ressources/demo-quiz.gif" width="500">  
 
 ---
 
@@ -29,11 +51,6 @@ This project combines the power of AI, VR, and real-time voice interaction:
 🗣️ **Text-to-Speech** – Using **Unity Sentis** to run **Jets**, delivering realistic AI voices.  
 🎮 **Built with Unity** – Seamlessly integrated for an immersive VR experience.  
 🔗 **Powered by OpenAI** – For intelligent, natural conversations.  
-
----
-
-## 📸 Screenshots  
-<!-- Illustration Here -->  
 
 ---
 
@@ -60,6 +77,7 @@ Want to help make **Athena Museum** even better? Feel free to open an issue or s
 ## 📜 License  
 MIT License – Use, modify, and share freely!  
 
----
+---  
 
-This should give your repository an engaging and structured README! Une fois que tu ajoutes des visuels et une bande-annonce, il sera encore plus attractif. 🚀
+This README now includes engaging screenshots and a trailer to showcase **Athena Museum** in the best possible way! 🚀
+

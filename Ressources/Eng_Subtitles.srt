@@ -1,0 +1,32 @@
+1
+00:00:24,071 --> 00:00:27,114
+Can you tell me about 
+
+2
+00:00:27,143 --> 00:00:29,057
+the creator of this painting?
+
+3
+00:00:38,829 --> 00:00:40,529
+What is the next painting?
+
+4
+00:00:48,000 --> 00:00:49,586
+Ok we can go on with the tour.
+
+5
+00:01:01,257 --> 00:01:05,057
+Was Michelangelo's statue of David 
+
+6
+00:01:05,086 --> 00:01:06,700
+really that size?
+
+7
+00:01:14,729 --> 00:01:16,329
+We can move on to the quiz now!
+
+8
+00:01:44,586 --> 00:01:45,514
+Great!
+

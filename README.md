@@ -69,8 +69,10 @@ This project combines the power of AI, VR, and real-time voice interaction:
 
 ---
 
-## 🤝 Contributing  
-Want to help make **Athena Museum** even better? Feel free to open an issue or submit a pull request!  
+## 🤝 Thanks & Credits
+* Thanks to **[@Tamulur](https://github.com/Tamulur)** who's work inspired this project
+* Credits to **Masayoshi Soken** for the backgroud music ([Skylord](https://www.youtube.com/watch?v=N_XKj0mv40k) from FFXIV)
+* This project was made by **[@lucaschlm](https://github.com/lucaschlm) (Lucas)**, **[@Lecouric](https://github.com/Lecouric) (Nathan)** and **[@JacquesDkz](https://github.com/JacquesDkz) (Jacques)** 
 
 ---
 
